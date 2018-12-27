@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Wars App Test Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="star-wars-app-test-css.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="star-wars-app.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12" id="star-wars-heading">
+                <h1>Star Wars</h1>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6" style="text-align: center;">
+
+                <div class="dropdown" style="display: inline-block;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Choose a Planet
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Tatooine</a>
+                        <a class="dropdown-item" href="#">Alderaan</a>
+                        <a class="dropdown-item" href="#">Yavin IV</a>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary">Submit</button>
+
+            </div>
+
+            <div class="col-md-6" style="text-align: center;">
+                <p>Or select a random planet:</p>
+                <button type="button" class="btn btn-primary">Random Planet</button>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6" style="text-align: center;">
+                Name: <br>
+                Terrain: <br>
+                Climate: <br>
+                Population: <br>
+            </div>
+
+            <div class="col-md-6" style="text-align: center;">
+                &lt;Image&gt; <br><br>
+                Residents: 
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
