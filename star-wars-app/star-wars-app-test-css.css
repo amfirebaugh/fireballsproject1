@@ -2,6 +2,11 @@
     text-align: center;
 }
 
-div {
+div, img {
     border: solid 1px red;
+}
+
+#planetImg {
+    height: 200px;
+    width: 200px;
 }

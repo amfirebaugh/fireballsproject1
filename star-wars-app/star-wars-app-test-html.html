@@ -23,24 +23,26 @@
 
             <div class="col-md-6" style="text-align: center;">
 
-                <div class="dropdown" style="display: inline-block;">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Choose a Planet
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Tatooine</a>
-                        <a class="dropdown-item" href="#">Alderaan</a>
-                        <a class="dropdown-item" href="#">Yavin IV</a>
-                    </div>
-                </div>
+                <select class="planet-selection">
+                    <option value="tatooine">Tatooine</option>
+                    <option value="alderaan">Alderaan</option>
+                    <option value="yavin+iv">Yavin IV</option>
+                    <option value="hoth">Hoth</option>
+                    <option value="dagobah">Dagobah</option>
+                    <option value="bespin">Bespin</option>
+                    <option value="endor">Endor</option>
+                    <option value="naboo">Naboo</option>
+                    <option value="coruscant">Coruscant</option>
+                    <option value="kamino">Kamino</option>
+                  </select>
 
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" id="submit-btn">Submit</button>
 
             </div>
 
             <div class="col-md-6" style="text-align: center;">
                 <p>Or select a random planet:</p>
-                <button type="button" class="btn btn-primary">Random Planet</button>
+                <button type="button" class="btn btn-primary" id="random-btn">Random Planet</button>
             </div>
 
         </div>
@@ -48,14 +50,14 @@
         <div class="row">
 
             <div class="col-md-6" style="text-align: center;">
-                Name: <br>
-                Terrain: <br>
-                Climate: <br>
-                Population: <br>
+                <div id="planetName">Name: </div>
+                <div id="planetTerrain">Terrain: </div>
+                <div id="planetClimate">Climate: </div>
+                <div id="planetPopulation">Population: </div>
             </div>
 
             <div class="col-md-6" style="text-align: center;">
-                &lt;Image&gt; <br><br>
+                <img id="planetImg"> <br><br>
                 Residents: 
             </div>
 
