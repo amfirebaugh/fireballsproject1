@@ -64,4 +64,6 @@ $(document).ready(function() {
     $(document).on("click", "#submit-btn", displayChosenPlanetInfo);
     $(document).on("click", "#random-btn", displayRandomPlanetInfo);
 
+    // Population
+
 });
