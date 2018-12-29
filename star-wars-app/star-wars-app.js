@@ -1,8 +1,11 @@
 $(document).ready(function() {
 
+    // Tatooine is selected on the dropdown by default
     var selectedPlanet = "tatooine";
 
+    // When the selection on the dropdown changes...
     $("select.planet-selection").change(function(){
+        // Store the value of the selected planet into a variable
         selectedPlanet = $(this).children("option:selected").val();
     });
     
@@ -14,7 +17,7 @@ $(document).ready(function() {
         var planet = $(this).attr("data-name");
         var queryURL = "https://swapi.co/api/planets/?search=" + planet;
 
-        // Creating an AJAX call for the specific movie button being clicked
+        // Creates an AJAX call for the specific planet being chosen
         $.ajax({
             url: queryURL,
             method: "GET"
