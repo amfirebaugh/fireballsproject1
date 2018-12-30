@@ -1,13 +1,24 @@
-console.log("Hello world");
+// mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
+var images = ["images/mercury.jpg", "images/venus.jpg", "images/earth.jpg", "images/mars.jpg", "images/jupiter.png", "images/saturn.jpg", "images/uranus.jpg", "images/neptune.jpg", "images/pluto.png"];
+var imgCaption = ["Mercury is not this colorful in real life. These colors represent all the different heavy metals and minerals on the surface of Mercury. It also highlights all of the craters on its rough surface.", "All of the gaseous clouds on Venus make it a very beautiful planet from our point of view on Earth even though its surface is not so pretty.", "Earth has four main layers: the Crust, Mantle, Outer Core, and Inner Core. We know this since we can study our home planet the most.", "Mars is known for many craters, deep valleys and canyons, and its red color. You can also find satellite images showing evidence of past water erosion.", "Jupiter has stripes because of all of different gasses in its atmosphere. The swirls are caused by all of the storms on this planet, and here you can see the famous Great Red Spot.", "Like Earth, Saturn is also tilted on its axis and has seasons. The seasons on Saturn, though, last 7 years long!", "Many people don't know that Uranus also has rings like Saturn. This image also shows how Uranus is tilted, and rotates, completely sideways.", "Even though Neptune looks bright blue in pictures, it's a very dark planet because it is so far away from the Sun and the light can't reach that far.", "Pluto is smaller than the Moon, in fact it's about half as wide as the United States. Pluto also has a heart-shaped ice glacier larger than Texas. The colors in this image represent the different chemicals on the surface of Pluto."];
+// in Earth days
+var orbits = ["87,969", "224,701", "365", "687", "4,333", "10,759", "30,684", "60,190", "90,465"];
+// distance from Sun in million miles
+var distance = ["36", "67", "93", "142", "483", "888", "1,784", "2,794", "3,647"];
+// of Earth (volume btw)
+var size = ["5%", "86%", "100%", "15%", "1318X", "744X", "67X", "57X", "1%"];
+var scienceFact = ["Even though Mercury is a very dense planet, it is still so small that it does not have enough gravity to hold onto an Atmosphere.", "Venus is the hottest planet in the solar system due to its dense atmosphere full of greenhouse gasses.", "Earth has seasons because it rotates on a tilted axis, not due to how close Earth is to the sun. In fact Earth's orbit is almost a circle, and has no impact on the seasons like many people believe.", "Mars has the biggest valleys and canyons than any other planet. Its biggest canyon, Valles Marineris, would stretch from New York City to Los Angeles on Earth (nothing compared to the Grand Canyon!).", "Jupiter spins much faster than Earth and it only takes 10 hours for it to rotate once (one day on Jupiter lasts 10 days). This also makes Jupiter stretch out so that it is wider than it is tall, so it's not a very round planet.", "Even though Saturn is one of the largest planets in the solar system in size, it is one of the lightest because it is mostly made up of gasses such as hydrogen, helium, and methane.", "Uranus is tilted sideways and thus it rotates sideways as well. Scientists think this is because Saturn was hit by something flying in space as large as Earth a long time ago.", "Neptune is a very gaseous and windy planet. Scientists have recorded frozen methane clouds moving as fast as 1,200 miles per hour on Neptune, and Earth's most powerful winds only reach 250 miles per hour.", "Scientists believe that Pluto is about two-thirds rock and one-third ice, which would mean that it contains more water than Earth."];
+var funFact = ["Mercury is a very slowly shrinking planet and this causes wrinkles in the surface.", "Venus rotates in the opposite direction as Earth, and therefore the Sun rises in the east and sets in the West on Venus.", "Earth is the only planet in the solar system that has exactly one moon. The moon plays a very important role to life on Earth, starting with ocean tides.", "Mars is often called the Red Planet because the soil color comes from high levels of iron oxide minerals - the same things that give blood and rust their color as well.", "Jupiter is well known for its biggest storm, The Eye of Jupiter. This storm, also called The Great Red Spot, is so big it could completely cover Earth.", "Saturn is the furthest planet from Earth you can see in the night sky without a telescope, although you cannot see the rings without a telescope because they are actually very thin (about half a mile thick!).", "Uranus is mostly made of icy water and ammonia, but scientists believe that beneath the icy surface is a layer of liquid diamond. Diamonds also rain down onto the surface of Uranus.", "Neptune has an irregular shaped orbit around the Sun and is sometimes further away from the Sun than Pluto. Because of this scientists didn't discover Neptune until much later than the other planets.", "In 2006 Pluto was reclassified as a dwarf planet because the International Astronomical Union (IAU) was discovering many new objects in our solar system. They had to come up with definitions for planets and dwarf planets, and Pluto fit the definition for dwarf planet that they all agreed upon."];
 
-// NASA Images
-var title = "mars"
-var queryURL1 = "images-api.nasa.gov/search?q=" + title;
+// sun
+var imageSun = "images/sun.jpg";
+// orbit around milky way
+var orbitSun;
+// distance to closest star
+var distanceSun = "The closest star to the Sun, Proxima Centauri, is 4.24 light years away, which is roughly 25 trillion miles away.";
+// number of Earth's
+var sizeSun = "1.3 million";
+var scienceFactSun = "The Sun's core is about 27 million degrees Fahrenheit, and the highest surface measured is 3.6 million degrees Fahrenheit. This is extremely hot to us, but the Sun is classified as a yellow dwarf star, and there are much hotter stars in the universe.";
+var funFactSun = "The Sun goes through phases, sort of like seasons, roughly every 11 years. When these phases change the Sun's activity changes and can effect things on Earth powered by electricity.";
 
-$.ajax({
-    url: queryURL1,
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-    console.log(response.links.href);
-  });
+// mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
