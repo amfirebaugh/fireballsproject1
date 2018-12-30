@@ -1,6 +1,6 @@
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
-var images = ["images/mercury.jpg", "images/venus.jpg", "images/earth.jpg", "images/mars.jpg", "images/jupiter.png", "images/saturn.jpg", "images/uranus.jpg", "images/neptune.jpg", "images/pluto.png"];
+var images = ["ssimages/mercury.jpg", "ssimages/venus.jpg", "ssimages/earth.jpg", "ssimages/mars.jpg", "ssimages/jupiter.png", "ssimages/saturn.jpg", "ssimages/uranus.jpg", "ssimages/neptune.jpg", "ssimages/pluto.png"];
 var imgCaption = ["Mercury is not this colorful in real life. These colors represent all the different heavy metals and minerals on the surface of Mercury. It also highlights all of the craters on its rough surface.", "All of the gaseous clouds on Venus make it a very beautiful planet from our point of view on Earth even though its surface is not so pretty.", "Earth has four main layers: the Crust, Mantle, Outer Core, and Inner Core. We know this since we can study our home planet the most.", "Mars is known for many craters, deep valleys and canyons, and its red color. You can also find satellite images showing evidence of past water erosion.", "Jupiter has stripes because of all of different gasses in its atmosphere. The swirls are caused by all of the storms on this planet, and here you can see the famous Great Red Spot.", "Like Earth, Saturn is also tilted on its axis and has seasons. The seasons on Saturn, though, last 7 years long!", "Many people don't know that Uranus also has rings like Saturn. This image also shows how Uranus is tilted, and rotates, completely sideways.", "Even though Neptune looks bright blue in pictures, it's a very dark planet because it is so far away from the Sun and the light can't reach that far.", "Pluto is smaller than the Moon, in fact it's about half as wide as the United States. Pluto also has a heart-shaped ice glacier larger than Texas. The colors in this image represent the different chemicals on the surface of Pluto."];
 // in Earth days
 var orbits = ["88", "225", "365", "687", "4,333", "10,759", "30,684", "60,190", "90,465"];
@@ -13,7 +13,7 @@ var scienceFact = ["Even though Mercury is a very dense planet, it is still so s
 var funFact = ["Mercury is a very slowly shrinking planet and this causes wrinkles in the surface.", "Venus rotates in the opposite direction as Earth, and therefore the Sun rises in the east and sets in the West on Venus.", "Earth is the only planet in the solar system that has exactly one moon. The moon plays a very important role to life on Earth, starting with ocean tides.", "Mars is often called the Red Planet because the soil color comes from high levels of iron oxide minerals - the same things that give blood and rust their color as well.", "Jupiter is well known for its biggest storm, The Eye of Jupiter. This storm, also called The Great Red Spot, is so big it could completely cover Earth.", "Saturn is the furthest planet from Earth you can see in the night sky without a telescope, although you cannot see the rings without a telescope because they are actually very thin (about half a mile thick!).", "Uranus is mostly made of icy water and ammonia, but scientists believe that beneath the icy surface is a layer of liquid diamond. Diamonds also rain down onto the surface of Uranus.", "Neptune has an irregular shaped orbit around the Sun and is sometimes further away from the Sun than Pluto. Because of this scientists didn't discover Neptune until much later than the other planets.", "In 2006 Pluto was reclassified as a dwarf planet because the International Astronomical Union (IAU) was discovering many new objects in our solar system. They had to come up with definitions for planets and dwarf planets, and Pluto fit the definition for dwarf planet that they all agreed upon."];
 
 // sun
-var imageSun = "images/sun.jpg";
+var imageSun = "ssimages/sun.jpg";
 var imageSunCap;
 // orbit around milky way
 var orbitSun;
@@ -54,7 +54,7 @@ $("#mercury").on("click", function(event) {
     // result info section for planets:
     $("#result-info").html(`
     <p id="planDistance">Distance: ${planets[0]} is ${distance[0]} million miles away from the Sun.</p>
-    <p id="planOrbit">Orbit: It takes ${planets[0]} ${orbit[0]} days to orbit around the Sun. This is how long a year is on ${planets[0]}.</p>
+    <p id="planOrbit">Orbit: It takes ${planets[0]} ${orbits[0]} days to orbit around the Sun. This is how long a year is on ${planets[0]}.</p>
     <p id="planSize">Size: ${size[0]}</p>
     <p id="planSciFact">Science Fact: ${scienceFact[0]}</p>
     <p id="planFunFact">Fun Fact: ${funFact[0]}</p>
