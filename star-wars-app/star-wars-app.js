@@ -12,7 +12,6 @@ $(document).ready(function() {
 
     function generatePopulationGraphic(pop) {
         $("#planetPopulationGraphic").empty();
-        console.log(pop);
         // if (pop === "unknown") {
         //     $("#planetPopulationGraphic").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
         // } else 
@@ -51,7 +50,13 @@ $(document).ready(function() {
             $("#planetName").text("Name: " + response.results[0].name);
             $("#planetTerrain").text("Terrain: " + response.results[0].terrain);
             $("#planetClimate").text("Climate: " + response.results[0].climate);
-            $("#planetPopulation").text("Population: " + response.results[0].population);
+            // Put commas in the numbers, as per:
+            // https://stackoverflow.com/questions/27761543/how-do-i-display-large-numbers-with-commas-html
+            $("#planetPopulation").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+            // var commaString = response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // console.log(commaString);
+            
 
             // $("#planetImg").attr("src", "images/tatooine.jpg");
             generatePopulationGraphic(planetPopulation);
@@ -74,6 +79,7 @@ $(document).ready(function() {
         }).then(function(response) {
 
             // var name = response.name;
+            planetPopulation = response.population;
 
             $("#planetName").text("Name: " + response.name);
             $("#planetTerrain").text("Terrain: " + response.terrain);
@@ -81,6 +87,7 @@ $(document).ready(function() {
             $("#planetPopulation").text("Population: " + response.population);
 
             // $("#planetImg").attr("src", "images/tatooine.jpg");
+            generatePopulationGraphic(planetPopulation);
         });
 
     }
