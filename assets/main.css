@@ -1,7 +1,13 @@
-#planet-map, #result-image, #result-info, #dropdown-submit, #random-planet-button, #star-wars-panel {
+#planet-map, #result-image, #result-info, #dropdown-submit, #random-planet-button, #star-wars-panel, #trivia-text{
     border: 2px solid palevioletred;
     background: white;
     opacity: 0.5;
+}
+#trivia-button {
+    opacity: 1.0 !important;
+}
+#trivia-btn {
+    font-size: 30px;
 }
 #title {
     font-family: 'Monoton', cursive;
