@@ -11,22 +11,61 @@ $(document).ready(function() {
     });
 
     function generatePopulationGraphic(pop) {
-        $("#planetPopulationGraphic").empty();
-        // if (pop === "unknown") {
-        //     $("#planetPopulationGraphic").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
-        // } else 
-        if (pop <= 1000000) {
+
+        $(".population-graphic").empty();
+
+        if (pop === "unknown") {
+            $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
+        } else if (pop <= 1000) {
+            var numberOfIcons = pop / 100;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#black-population").append("<img src=\"images/populationblack.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 1000 && pop <= 10000) {
+            var numberOfIcons = pop / 1000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#grey-population").append("<img src=\"images/populationgrey.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 10000 && pop <= 100000) {
+            var numberOfIcons = pop / 10000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#pink-population").append("<img src=\"images/populationpink.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 100000 && pop <= 1000000) {
             var numberOfIcons = pop / 100000;
             for (i = 1; i <= numberOfIcons; i++) {
-                $("#planetPopulationGraphic").append("<img src=\"images/populationblue.png\" style=\"height: 50px; width: 50px;\">");
+                $("#purple-population").append("<img src=\"images/populationpurple.png\" style=\"height: 25px; width: 25px;\">");
             }
-        } else if (pop > 1000000 && pop <= 1000000000) {
+        } else if (pop > 1000000 && pop <= 10000000) {
+            var numberOfIcons = pop / 1000000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#indigo-population").append("<img src=\"images/populationindigo.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 10000000 && pop <= 100000000) {
+            var numberOfIcons = pop / 10000000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#blue-population").append("<img src=\"images/populationblue.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 100000000 && pop <= 1000000000) {
             var numberOfIcons = pop / 100000000;
             for (i = 1; i <= numberOfIcons; i++) {
-                $("#planetPopulationGraphic").append("<img src=\"images/populationgreen.png\" style=\"height: 50px; width: 50px;\">");
+                $("#green-population").append("<img src=\"images/populationgreen.png\" style=\"height: 25px; width: 25px;\">");
             }
-        } else if (pop === "unknown") {
-            $("#planetPopulationGraphic").append("<img src=\"images/populationunknown.png\">");
+        } else if (pop > 1000000000 && pop <= 10000000000) {
+            var numberOfIcons = pop / 1000000000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#yellow-population").append("<img src=\"images/populationyellow.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 10000000000 && pop <= 100000000000) {
+            var numberOfIcons = pop / 10000000000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#orange-population").append("<img src=\"images/populationorange.png\" style=\"height: 25px; width: 25px;\">");
+            }
+        } else if (pop > 100000000000 && pop <= 1000000000000) {
+            var numberOfIcons = pop / 100000000000;
+            for (i = 1; i <= numberOfIcons; i++) {
+                $("#red-population").append("<img src=\"images/populationred.png\" style=\"height: 25px; width: 25px;\">");
+            }
         }
     }
     
@@ -50,14 +89,9 @@ $(document).ready(function() {
             $("#planetName").text("Name: " + response.results[0].name);
             $("#planetTerrain").text("Terrain: " + response.results[0].terrain);
             $("#planetClimate").text("Climate: " + response.results[0].climate);
-            // Put commas in the numbers, as per:
-            // https://stackoverflow.com/questions/27761543/how-do-i-display-large-numbers-with-commas-html
+            // toString().replace... method puts commas in the numbers
             $("#planetPopulation").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-
-            // var commaString = response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            // console.log(commaString);
             
-
             // $("#planetImg").attr("src", "images/tatooine.jpg");
             generatePopulationGraphic(planetPopulation);
         });
@@ -84,7 +118,8 @@ $(document).ready(function() {
             $("#planetName").text("Name: " + response.name);
             $("#planetTerrain").text("Terrain: " + response.terrain);
             $("#planetClimate").text("Climate: " + response.climate);
-            $("#planetPopulation").text("Population: " + response.population);
+            // Put commas in the numbers
+            $("#planetPopulation").text("Population: " + response.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
             // $("#planetImg").attr("src", "images/tatooine.jpg");
             generatePopulationGraphic(planetPopulation);
