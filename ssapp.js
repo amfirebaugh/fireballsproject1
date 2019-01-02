@@ -81,5 +81,3 @@ $(".planet").on("click", function(event) {
         }
     }
 });
-
-
