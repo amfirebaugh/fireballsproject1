@@ -1,30 +1,13 @@
-body {
-    background-image: url(https://wonderfulengineering.com/wp-content/uploads/2014/06/galaxy-wallpapers-11.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#planet-map {
+#planet-map, #result-image, #result-info, #dropdown-submit, #random-planet-button, #star-wars-panel {
     border: 2px solid palevioletred;
-}
-#result-image {
-    border: 2px solid palevioletred;
-}
-#result-info {
-    border: 2px solid palevioletred;
-}
-#dropdown-submit {
-    border: 2px solid palevioletred;
-}
-#random-planet-button {
-    border: 2px solid palevioletred;
-}
-#star-wars-panel {
-    border: 2px solid palevioletred;
+    background: white;
+    opacity: 0.5;
 }
 #title {
     font-family: 'Monoton', cursive;
-    font-size: 80px;
+    font-size: 85px;
 }
 #star-wars-logo {
     font-size: 70px;
+    color: #F0F8FF;
 }
