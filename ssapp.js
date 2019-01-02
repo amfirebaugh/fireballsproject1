@@ -1,3 +1,20 @@
+var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+
+$.ajax({
+   url: queryURL,
+   method: "GET"
+ }).then(function(response) {
+   console.log(response);
+   console.log(response.url);
+   var imgURL= response.url;
+   $('.container').css('background-image', `url(${imgURL})`);
+   $('.container').css('background-repeat', 'no-repeat');
+   $('.container').css('background-size', 'cover');
+   // below vh is viewport height, woohoo!
+   $('.container').css('height', '100vh');
+   $('.container').css('opacity', '0.7');
+ })
+
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
 var images = ["ssimages/mercury.jpg", "ssimages/venus.jpg", "ssimages/earth.jpg", "ssimages/mars.jpg", "ssimages/jupiter.png", "ssimages/saturn.jpg", "ssimages/uranus.jpg", "ssimages/neptune.jpg", "ssimages/pluto.png"];
@@ -43,14 +60,9 @@ $("#sun").on("click", function(event) {
     `);
 });
 
-// NEED TO FINISH SUN SECTION!
-
 $(".planet").on("click", function(event) {
-    // console.log(event.target);
     event.preventDefault();
-
     var planetName = event.target.id;
-    // console.log(planetName); // id clicked on
     for (var j = 0; j < planets.length; j++) {
         if (planets[j] === planetName) {
             console.log(planets[j]);
@@ -69,5 +81,4 @@ $(".planet").on("click", function(event) {
         }
     }
 });
-
 
