@@ -14,14 +14,14 @@ var funFact = ["Mercury is a very slowly shrinking planet and this causes wrinkl
 
 // sun
 var imageSun = "ssimages/sun.jpg";
-var imageSunCap;
+var imageSunCap = "On this picture you can see a few solar flares which are bursts of high-energy that can cause disturbances with radios and power lines on Earth.";
 // orbit around milky way
-var orbitSun;
+var orbitSun = "The Sun, in fact our entire Solar System, revolves around the center of the Milky Way Galaxy. It takes 230 million years for us to revolve one time around.";
 // distance to closest star
 var distanceSun = "The closest star to the Sun, Proxima Centauri, is 4.24 light years away, which is roughly 25 trillion miles away.";
 // number of Earth's
 var sizeSun = "1.3 million";
-var scienceFactSun = "The Sun's core is about 27 million degrees Fahrenheit, and the surface is roughly 10,000 degrees Fahrenheit. This is extremely hot to us, but the Sun is classified as a yellow dwarf star, and there are much hotter stars in the universe.";
+var scienceFactSun = "The Sun's core is about 27 million degrees Fahrenheit, and the surface is roughly 10,000 degrees Fahrenheit. This is extremely hot, but the Sun just a yellow dwarf star, and there are much hotter stars in the universe.";
 var funFactSun = "The Sun goes through phases, sort of like seasons, roughly every 11 years. When these phases change the Sun's activity changes and can effect things on Earth powered by electricity.";
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
@@ -30,33 +30,44 @@ $("#sun").on("click", function(event) {
     event.preventDefault();
     console.log(imageSun);
     // result image section for the Sun:
-    $("#result-image").html(`<img class="ssResImg" src="${imageSun}">`);
+    $("#result-image").html(`<img class="ssResImg" src="${imageSun}">
+    <p id="imgSunCap">${imageSunCap}</p>
+    `);
     // result info section for the Sun:
     $("#result-info").html(`
-    <p id="sunDistance">${distanceSun}</p>
-    <p id="sunSize">You can fit ${sizeSun} Earth's into the Sun!</p>
-    <p id="sunSciFact">${scienceFactSun}</p>
-    <p id="sunFunFact">${funFactSun}</p>
+    <p id="sunDistance">Distance: ${distanceSun}</p>
+    <p id="sunOrbit">Orbit: ${orbitSun}</p>
+    <p id="sunSize">Size: You can fit ${sizeSun} Earth's into the Sun!</p>
+    <p id="sunSciFact">Science Fact: ${scienceFactSun}</p>
+    <p id="sunFunFact">Fun Fact: ${funFactSun}</p>
     `);
 });
 
 // NEED TO FINISH SUN SECTION!
 
-// WANT TO PUT BELOW IN A FOR LOOP TO CONDENSE CODE AND POPULATE FOR ALL PLANETS, NOT JUST ONE...MIGHT NEED HELP...
-
-$("#mercury").on("click", function(event) {
+$(".planet").on("click", function(event) {
+    // console.log(event.target);
     event.preventDefault();
-    console.log(images[0]);
-    // result image section for planets:
-    $("#result-image").html(`<img class="ssResImg" src="${images[0]}">
-    <p id="imgCap">${imgCaption[0]}</p>
-    `);
-    // result info section for planets:
-    $("#result-info").html(`
-    <p id="planDistance">Distance: ${planets[0]} is ${distance[0]} million miles away from the Sun.</p>
-    <p id="planOrbit">Orbit: It takes ${planets[0]} ${orbits[0]} days to orbit around the Sun. This is how long a year is on ${planets[0]}.</p>
-    <p id="planSize">Size: ${size[0]}</p>
-    <p id="planSciFact">Science Fact: ${scienceFact[0]}</p>
-    <p id="planFunFact">Fun Fact: ${funFact[0]}</p>
-    `);
+
+    var planetName = event.target.id;
+    // console.log(planetName); // id clicked on
+    for (var j = 0; j < planets.length; j++) {
+        if (planets[j] === planetName) {
+            console.log(planets[j]);
+            // result image section for planets:
+            $("#result-image").html(`<img class="ssResImg" src="${images[j]}">
+            <p id="imgCap">${imgCaption[j]}</p>
+            `);
+            // result info section for planets:
+            $("#result-info").html(`
+            <p id="planDistance">Distance: ${planets[j]} is ${distance[j]} million miles away from the Sun.</p>
+            <p id="planOrbit">Orbit: It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</p>
+            <p id="planSize">Size: ${size[j]}</p>
+            <p id="planSciFact">Science Fact: ${scienceFact[j]}</p>
+            <p id="planFunFact">Fun Fact: ${funFact[j]}</p>
+            `);
+        }
+    }
 });
+
+
