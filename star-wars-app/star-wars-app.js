@@ -16,57 +16,71 @@ $(document).ready(function() {
 
         if (pop === "unknown") {
             $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
-        } else if (pop <= 1000) {
-            var numberOfIcons = pop / 100;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#black-population").append("<img src=\"images/populationblack.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 1000 && pop <= 10000) {
-            var numberOfIcons = pop / 1000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#grey-population").append("<img src=\"images/populationgrey.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 10000 && pop <= 100000) {
-            var numberOfIcons = pop / 10000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#pink-population").append("<img src=\"images/populationpink.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 100000 && pop <= 1000000) {
-            var numberOfIcons = pop / 100000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#purple-population").append("<img src=\"images/populationpurple.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 1000000 && pop <= 10000000) {
-            var numberOfIcons = pop / 1000000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#indigo-population").append("<img src=\"images/populationindigo.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 10000000 && pop <= 100000000) {
-            var numberOfIcons = pop / 10000000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#blue-population").append("<img src=\"images/populationblue.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 100000000 && pop <= 1000000000) {
-            var numberOfIcons = pop / 100000000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#green-population").append("<img src=\"images/populationgreen.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 1000000000 && pop <= 10000000000) {
-            var numberOfIcons = pop / 1000000000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#yellow-population").append("<img src=\"images/populationyellow.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 10000000000 && pop <= 100000000000) {
-            var numberOfIcons = pop / 10000000000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#orange-population").append("<img src=\"images/populationorange.png\" style=\"height: 25px; width: 25px;\">");
-            }
-        } else if (pop > 100000000000 && pop <= 1000000000000) {
-            var numberOfIcons = pop / 100000000000;
-            for (i = 1; i <= numberOfIcons; i++) {
-                $("#red-population").append("<img src=\"images/populationred.png\" style=\"height: 25px; width: 25px;\">");
+        } else {
+        for (i = 100000000000; i >= 100; i /= 10) {
+            if (pop / i >= 1) {
+                var numberOfIcons = pop / i;
+                for (j = 1; j <= numberOfIcons; j++) {
+                    $("#" + i + "-population").append("<img src=\"images/population" + i + ".png\" style=\"height: 25px; width: 25px;\">");
+                }
+                pop = pop % i;
             }
         }
+    }
+
+        // if (pop === "unknown") {
+        //     $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
+        // } else if (pop <= 1000) {
+        //     var numberOfIcons = pop / 100;
+        // for (i = 1; i <= numberOfIcons; i++) {
+        //     $("#100-population").append("<img src=\"images/population100.png\" style=\"height: 25px; width: 25px;\">");
+        // }
+        // } else if (pop > 1000 && pop <= 10000) {
+        //     var numberOfIcons = pop / 1000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#1000-population").append("<img src=\"images/population1000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 10000 && pop <= 100000) {
+        //     var numberOfIcons = pop / 10000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#10000-population").append("<img src=\"images/population10000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 100000 && pop <= 1000000) {
+        //     var numberOfIcons = pop / 100000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#100000-population").append("<img src=\"images/population100000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 1000000 && pop <= 10000000) {
+        //     var numberOfIcons = pop / 1000000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#1000000-population").append("<img src=\"images/population1000000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 10000000 && pop <= 100000000) {
+        //     var numberOfIcons = pop / 10000000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#10000000-population").append("<img src=\"images/population10000000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 100000000 && pop <= 1000000000) {
+        //     var numberOfIcons = pop / 100000000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#100000000-population").append("<img src=\"images/population100000000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 1000000000 && pop <= 10000000000) {
+        //     var numberOfIcons = pop / 1000000000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#1000000000-population").append("<img src=\"images/population1000000000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 10000000000 && pop <= 100000000000) {
+        //     var numberOfIcons = pop / 10000000000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#10000000000-population").append("<img src=\"images/population10000000000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // } else if (pop > 100000000000 && pop <= 1000000000000) {
+        //     var numberOfIcons = pop / 100000000000;
+        //     for (i = 1; i <= numberOfIcons; i++) {
+        //         $("#100000000000-population").append("<img src=\"images/population100000000000.png\" style=\"height: 25px; width: 25px;\">");
+        //     }
+        // }
     }
     
     // displayPlanetInfo function re-renders the HTML to display the appropriate content
