@@ -14,7 +14,10 @@ $(document).ready(function() {
 
         $(".population-graphic").empty();
 
-        if (pop === "unknown") {
+        if (selectedPlanet === "alderaan") {
+            $("#1000000000-population").append("<img src=\"images/populationdead.png\" style=\"height: 30px; width: 30px;\">");
+            $("#1000000000-population").append("<img src=\"images/populationdead.png\" style=\"height: 30px; width: 30x;\">");
+        } else if (pop === "unknown") {
             $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
         } else {
         for (i = 100000000000; i >= 100; i /= 10) {
@@ -104,7 +107,10 @@ $(document).ready(function() {
             $("#planetTerrain").text("Terrain: " + response.results[0].terrain);
             $("#planetClimate").text("Climate: " + response.results[0].climate);
             // toString().replace... method puts commas in the numbers
-            $("#planetPopulation").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $("#planet-population").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            if (selectedPlanet === "alderaan") {
+                $("#planet-population").append("...before the planet was blown up :(");
+            }
             
             // $("#planetImg").attr("src", "images/tatooine.jpg");
             generatePopulationGraphic(planetPopulation);
@@ -132,8 +138,11 @@ $(document).ready(function() {
             $("#planetName").text("Name: " + response.name);
             $("#planetTerrain").text("Terrain: " + response.terrain);
             $("#planetClimate").text("Climate: " + response.climate);
-            // Put commas in the numbers
-            $("#planetPopulation").text("Population: " + response.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            // toString().replace... method puts commas in the numbers
+            $("#planet-population").text("Population: " + response.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            if (selectedPlanet === "alderaan") {
+                $("#planet-population").append("...before the planet was blown up :(");
+            }
 
             // $("#planetImg").attr("src", "images/tatooine.jpg");
             generatePopulationGraphic(planetPopulation);
