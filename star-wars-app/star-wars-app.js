@@ -103,16 +103,17 @@ $(document).ready(function() {
             // var name = response.name;
             planetPopulation = response.results[0].population;
 
-            $("#planetName").text("Name: " + response.results[0].name);
-            $("#planetTerrain").text("Terrain: " + response.results[0].terrain);
-            $("#planetClimate").text("Climate: " + response.results[0].climate);
+            $("#planet-name").text("Name: " + response.results[0].name);
+            $("#planet-terrain").text("Terrain: " + response.results[0].terrain);
+            $("#planet-climate").text("Climate: " + response.results[0].climate);
             // toString().replace... method puts commas in the numbers
             $("#planet-population").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             if (selectedPlanet === "alderaan") {
                 $("#planet-population").append("...before the planet was blown up :(");
             }
             
-            // $("#planetImg").attr("src", "images/tatooine.jpg");
+            $("#planet-img").attr("src", "images/" + selectedPlanet + ".png");
+
             generatePopulationGraphic(planetPopulation);
         });
 
@@ -135,16 +136,17 @@ $(document).ready(function() {
             // var name = response.name;
             planetPopulation = response.population;
 
-            $("#planetName").text("Name: " + response.name);
-            $("#planetTerrain").text("Terrain: " + response.terrain);
-            $("#planetClimate").text("Climate: " + response.climate);
+            $("#planet-name").text("Name: " + response.name);
+            $("#planet-terrain").text("Terrain: " + response.terrain);
+            $("#planet-climate").text("Climate: " + response.climate);
             // toString().replace... method puts commas in the numbers
             $("#planet-population").text("Population: " + response.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             if (selectedPlanet === "alderaan") {
                 $("#planet-population").append("...before the planet was blown up :(");
             }
 
-            // $("#planetImg").attr("src", "images/tatooine.jpg");
+            $("#planet-img").attr("src", "images/" + selectedPlanet + ".png");
+
             generatePopulationGraphic(planetPopulation);
         });
 
