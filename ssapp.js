@@ -7,12 +7,12 @@ $.ajax({
    console.log(response);
    console.log(response.url);
    var imgURL= response.url;
-   $('.container').css('background-image', `url(${imgURL})`);
-   $('.container').css('background-repeat', 'no-repeat');
-   $('.container').css('background-size', 'cover');
+   $('#wrapper').css('background-image', `url(${imgURL})`);
+   $('#wrapper').css('background-repeat', 'no-repeat');
+   $('#wrapper').css('background-size', 'cover');
    // below vh is viewport height, woohoo!
-   $('.container').css('height', '100vh');
-   $('.container').css('opacity', '0.7');
+   $('#wrapper').css('height', '100vh');
+   $('#wrapper').css('opacity', '0.7');
  })
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
@@ -52,11 +52,11 @@ $("#sun").on("click", function(event) {
     `);
     // result info section for the Sun:
     $("#result-info").html(`
-    <p id="sunDistance">Distance: ${distanceSun}</p>
-    <p id="sunOrbit">Orbit: ${orbitSun}</p>
-    <p id="sunSize">Size: You can fit ${sizeSun} Earth's into the Sun!</p>
-    <p id="sunSciFact">Science Fact: ${scienceFactSun}</p>
-    <p id="sunFunFact">Fun Fact: ${funFactSun}</p>
+    <h5>Distance: </h5><p id="sunDistance">${distanceSun}</p>
+    <h5>Orbit: </h5><p id="sunOrbit">${orbitSun}</p>
+    <h5>Size: </h5><p id="sunSize">You can fit ${sizeSun} Earth's into the Sun!</p>
+    <h5>Science Fact: </h5><p id="sunSciFact">${scienceFactSun}</p>
+    <h5>Fun Fact: </h5><p id="sunFunFact">${funFactSun}</p>
     `);
 });
 
