@@ -85,6 +85,11 @@ $(document).ready(function() {
         //     }
         // }
     }
+
+    // Returns string with first letter upper case, used for terrain and climate fields
+    function upperCaseFirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     
     // displayPlanetInfo function re-renders the HTML to display the appropriate content
     function displayChosenPlanetInfo() {
@@ -104,8 +109,8 @@ $(document).ready(function() {
             planetPopulation = response.results[0].population;
 
             $("#planet-name").text("Name: " + response.results[0].name);
-            $("#planet-terrain").text("Terrain: " + response.results[0].terrain);
-            $("#planet-climate").text("Climate: " + response.results[0].climate);
+            $("#planet-terrain").text("Terrain: " + upperCaseFirst(response.results[0].terrain));
+            $("#planet-climate").text("Climate: " + upperCaseFirst(response.results[0].climate));
             // toString().replace... method puts commas in the numbers
             $("#planet-population").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             if (selectedPlanet === "alderaan") {
@@ -137,7 +142,7 @@ $(document).ready(function() {
             planetPopulation = response.population;
 
             $("#planet-name").text("Name: " + response.name);
-            $("#planet-terrain").text("Terrain: " + response.terrain);
+            $("#planet-terrain").text("Terrain: " + upperCaseFirst(response.terrain));
             $("#planet-climate").text("Climate: " + response.climate);
             // toString().replace... method puts commas in the numbers
             $("#planet-population").text("Population: " + response.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
