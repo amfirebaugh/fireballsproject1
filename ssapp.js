@@ -1,6 +1,6 @@
 initMars();
 
-var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+var queryURL = "http://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 $.ajax({
    url: queryURL,
@@ -125,49 +125,39 @@ enteredDate.setAttribute('min','2012-12-31');
 enteredDate.setAttribute('max', maxDate);
 
 // listen for date-form submit
-// I just liked the 12th (index 11) image of the object, it usually provides a photo in color and is usually a more interesting photo than index 0
 document.querySelector('#date-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    console.log("PLEASE CLICK");
-    // Ajax call
-    console.log('valid date format', enteredDate.value);
-    console.log('make your ajax call')
+
     var nasaDate = enteredDate.value;
-    console.log(nasaDate);
-    console.log(typeof(nasaDate));
-    // Ajax Call should go here...
-    var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + nasaDate + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
-    console.log(queryURL2); // correct and working
+
+    // Ajax Call
+    var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + nasaDate + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
     $.ajax({
         url: queryURL2,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
-        console.log(response.photos);
-        console.log(response.photos[0].img_src);
         $("#marsImage").html(`
-        <img id="resMarsImg" src="${response.photos[11].img_src}" alt="mars-rover-image">
+        <img id="resMarsImg" src="${response.photos[0].img_src}" alt="mars-rover-image">
         <h5>Date: </h5><p>${nasaDate}</p>
-        `);
-        
+        `); 
     });
+
     // clear date input after submission
     enteredDate.value = '';
 });
 
 function initMars() {
-    var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+    var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
     $.ajax({
         url: queryURL2,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
-        console.log(response.photos);
         $("#marsImage").html(`
         <img id="resMarsImg" src="${response.photos[11].img_src}" alt="mars-rover-image">
         <h5>Date: </h5><p>2015-3-14 (Pi Day!)</p>
         `);
+        // I just liked this index for the image of the object, it usually provides a photo in color and is usually a more interesting photo than index 0
     });
 }
