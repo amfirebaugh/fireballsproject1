@@ -1,30 +1,39 @@
-body {
-    background-image: url(https://wonderfulengineering.com/wp-content/uploads/2014/06/galaxy-wallpapers-11.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#planet-map {
+#planet-map, #result-image, #result-info, #dropdown-submit, #random-planet-button, #star-wars-panel, #trivia-text{
     border: 2px solid palevioletred;
+    background: white;
+    /* opacity: 0.5; */
 }
-#result-image {
-    border: 2px solid palevioletred;
+#trivia-button {
+    opacity: 1.0 !important;
 }
-#result-info {
-    border: 2px solid palevioletred;
-}
-#dropdown-submit {
-    border: 2px solid palevioletred;
-}
-#random-planet-button {
-    border: 2px solid palevioletred;
-}
-#star-wars-panel {
-    border: 2px solid palevioletred;
+#trivia-btn {
+    font-size: 30px;
 }
 #title {
     font-family: 'Monoton', cursive;
-    font-size: 80px;
+    font-size: 85px;
 }
 #star-wars-logo {
     font-size: 70px;
+    color: #F0F8FF;
+}
+/* below added by Allie for Solar System Section Specifically */
+#ssImg {
+    width: 100%;
+}
+.ssResImg {
+    max-height: 300px;
+    max-width: 300px;
+}
+#result-info h5 {
+    float: left;
+    margin-right: 10px;
+}
+/* trying to change planet outline issue
+area[target] {
+    outline-color: none;
+} */
+#resMarsImg {
+    max-height: 300px;
+    max-width: 380px;
 }

@@ -1,19 +1,21 @@
-// var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+initMars();
 
-// $.ajax({
-//    url: queryURL,
-//    method: "GET"
-//  }).then(function(response) {
-//    console.log(response);
-//    console.log(response.url);
-//    var imgURL= response.url;
-//    $('.container').css('background-image', `url(${imgURL})`);
-//    $('.container').css('background-repeat', 'no-repeat');
-//    $('.container').css('background-size', 'cover');
-//    // below vh is viewport height, woohoo!
-//    $('.container').css('height', '100vh');
-//    $('.container').css('opacity', '0.7');
-//  });
+var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+
+$.ajax({
+   url: queryURL,
+   method: "GET"
+ }).then(function(response) {
+   console.log(response);
+   console.log(response.url);
+   var imgURL= response.url;
+   $('#wrapper').css('background-image', `url(${imgURL})`);
+   $('#wrapper').css('background-repeat', 'no-repeat');
+   $('#wrapper').css('background-size', 'cover');
+   // below vh is viewport height, woohoo!
+   $('#wrapper').css('height', '100vh');
+   $('#wrapper').css('opacity', '0.7');
+ });
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
@@ -72,18 +74,15 @@ $(".planet").on("click", function(event) {
             `);
             // result info section for planets:
             $("#result-info").html(`
-            <p id="planDistance">Distance: ${planets[j]} is ${distance[j]} million miles away from the Sun.</p>
-            <p id="planOrbit">Orbit: It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</p>
-            <p id="planSize">Size: ${size[j]}</p>
-            <p id="planSciFact">Science Fact: ${scienceFact[j]}</p>
-            <p id="planFunFact">Fun Fact: ${funFact[j]}</p>
+            <h5>Distance: </h5><p id="planDistance">${planets[j]} is ${distance[j]} million miles away from the Sun.</p>
+            <h5>Orbit: </h5><p id="planOrbit">It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</p>
+            <h5>Size: </h5><p id="planSize">${size[j]}</p>
+            <h5>Science Fact: </h5><p id="planSciFact">${scienceFact[j]}</p>
+            <h5>Fun Fact: </h5><p id="planFunFact">${funFact[j]}</p>
             `);
         }
     }
 });
-
-// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY
-
 
 
 /* 
@@ -126,6 +125,7 @@ enteredDate.setAttribute('min','2012-12-31');
 enteredDate.setAttribute('max', maxDate);
 
 // listen for date-form submit
+// I just liked the 12th (index 11) image of the object, it usually provides a photo in color and is usually a more interesting photo than index 0
 document.querySelector('#date-form').addEventListener('submit', function(e) {
     e.preventDefault();
     console.log("PLEASE CLICK");
@@ -145,10 +145,29 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
     }).then(function(response) {
         console.log(response);
         console.log(response.photos);
-        console.log(response.photos.img_src);
+        console.log(response.photos[0].img_src);
+        $("#marsImage").html(`
+        <img id="resMarsImg" src="${response.photos[11].img_src}" alt="mars-rover-image">
+        <h5>Date: </h5><p>${nasaDate}</p>
+        `);
         
     });
     // clear date input after submission
     enteredDate.value = '';
 });
 
+function initMars() {
+    var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        console.log(response.photos);
+        $("#marsImage").html(`
+        <img id="resMarsImg" src="${response.photos[11].img_src}" alt="mars-rover-image">
+        <h5>Date: </h5><p>2015-3-14 (Pi Day!)</p>
+        `);
+    });
+}

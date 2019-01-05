@@ -3,38 +3,61 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Fireball's Project</title>
+    <title>SOLAR SPECTACULAR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 </head>
-<body class="bg-dark">
+<body>
     <!-- TITLE JUMBOTRON -->
+<div id="wrapper">
     <div class="container">
         <div class="jumbotron jumbotron-fluid text-center bg-transparent">
             <div class="container font-weight-bold text-white">
-                <h1 id="title">SOLAR SPECTACULAR!!!</h1>
+                <h1 id="title">SOLAR SPECTACULAR!!</h1>
             </div>
         </div>
     </div>
-    <br>
     <!-- SOLAR SYSTEM STUFF-->
-    <div  class="container">
+    <div class="container">
         <div class="row">
             <!-- SOLAR SYSTEM CLICKABLE MAP GOES HERE -->
-            <div id="planet-map" class="col-md-12 bg-transparent text-white p-3"> </div>
-            <!-- SOLAR SYSTEM RESULT IMAGE AND INFO GOES HERE -->
-            <div id="result-image" class="col-md-6 text-center bg-white mt-3 p-3"></div>
-            <div id="result-info" class="col-md-6 text-center bg-white mt-3 p-3"></div>
+            <div id="planet-map" class="col-md-12 p-3">
+                <img id="ssImg" src="ssimages/solarsystem3.jpg" usemap="#image-map">
+                <map name="image-map">
+                    <area id="sun" target="_self" alt="Sun" title="Sun" href="#" coords="50,959,47,725,150,754,209,817,229,881,230,926,219,966" shape="poly">
+                    <area class="planet" id="Venus" target="_self" alt="Venus" title="Venus" href="#" coords="386,689,49" shape="circle">
+                    <area class="planet" id="Mercury" target="_self" alt="Mercury" title="Mercury" href="#" coords="297,739,25" shape="circle">
+                    <area class="planet" id="Earth" target="_self" alt="Earth" title="Earth" href="#" coords="520,621,54" shape="circle">
+                    <area class="planet" id="Mars" target="_self" alt="Mars" title="Mars" href="#" coords="662,548,37" shape="circle">
+                    <area class="planet" id="Jupiter" target="_self" alt="Jupiter" title="Jupiter" href="#" coords="802,476,81" shape="circle">
+                    <area class="planet" id="Saturn" target="_self" alt="Saturn" title="Saturn" href="#" coords="992,391,70" shape="circle">
+                    <area class="planet" id="Uranus" target="_self" alt="Uranus" title="Uranus" href="#" coords="1156,305,50" shape="circle">
+                    <area class="planet" id="Neptune" target="_self" alt="Neptune" title="Neptune" href="#" coords="1291,249,40" shape="circle">
+                    <area class="planet" id="Pluto" target="_self" alt="Pluto" title="Pluto" href="#" coords="1407,192,25" shape="circle">
+                </map>
+            </div>
         </div>
+        <!-- SOLAR SYSTEM RESULT IMAGE AND INFO GOES HERE -->
+        <div class="row">
+            <div id="result-image" class="col-md-6 text-center text-black mt-3 p-3">
+                <img src="ssimages/space_load.jpg" class="ssResImg" alt="general-space-photo">
+                <p>Click the Sun or any of the planets in the image above to view more images!</p>
+            </div>
+            <div id="result-info" class="col-md-6 text-center text-black mt-3 p-3">
+                <h3>Click the Sun or any of the planets in the image above to view more information about their distance, orbit, size, and other fun facts!</h3>
+            </div>
+        </div>  
     </div>
     <br>
 
+    <!-- Mars Rover Section -->
     <div class="container">
         <div class="row">
-            <div id="mars-rover" class="col-md-6 mx-auto mt-5">
-                <p class="text-light text-center lead">As part of NASA's Mars exploration efforts, Mars rover "Curiosity" began beaming images of Mars back to earth in 2012.  NASA has since made those images available to the public.</p>
+            <!-- Mars Input Section -->
+            <div id="mars-rover" class="col-md-6 mt-5 p-3">
+                <p class="text-light text-center lead">As part of NASA's Mars exploration efforts, Mars rover "Curiosity" began beaming images of Mars back to earth in 2012. NASA has since made those images available to the public.</p>
                 <p class="text-light text-center small">Enter a date below to see corresponding pictures from Curiosity.</p>
             <form id="date-form">
                 <div class="form-group">
@@ -57,6 +80,8 @@
                 <!-- End Input Form -->
             </form>
             </div>
+            <!-- Mars Result Section -->
+            <div class="col-md-6 p-3" id="marsImage"></div>
         </div>
     </div>
 
@@ -99,5 +124,11 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
 crossorigin="anonymous"
 ></script>
 <script src="ssapp.js"></script>
+<script src="jquery.rwdImageMaps.js"></script>
+<script>
+    $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+    });
+</script>
 
 </html>
