@@ -8,8 +8,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-    <!-- <script type="text/javascript" src="ssapp.js"></script> -->
 </head>
 <body>
     <!-- TITLE JUMBOTRON -->
@@ -17,7 +15,7 @@
     <div class="container">
         <div class="jumbotron jumbotron-fluid text-center bg-transparent">
             <div class="container font-weight-bold text-white">
-                <h1 id="title">SOLAR SPECTACULAR!!!</h1>
+                <h1 id="title">SOLAR SPECTACULAR!!</h1>
             </div>
         </div>
     </div>
@@ -25,7 +23,7 @@
     <div  class="container">
         <div class="row">
             <!-- SOLAR SYSTEM CLICKABLE MAP GOES HERE -->
-            <div id="planet-map" class="col-md-12 text-black p-3">
+            <div id="planet-map" class="col-md-12 p-3">
                 <img id="ssImg" src="ssimages/solarsystem3.jpg" usemap="#image-map">
                 <map name="image-map">
                     <area id="sun" target="_self" alt="Sun" title="Sun" href="#" coords="50,959,47,725,150,754,209,817,229,881,230,926,219,966" shape="poly">
@@ -41,11 +39,29 @@
                 </map>
             </div>
             <!-- SOLAR SYSTEM RESULT IMAGE AND INFO GOES HERE -->
-            <div id="result-image" class="col-md-6 text-center text-black mt-3 p-3"></div>
-            <div id="result-info" class="col-md-6 text-center text-black mt-3 p-3"></div>
+            <div id="result-image" class="col-md-6 text-center text-black mt-3 p-3">
+                <img src="ssimages/space_load.jpg" class="ssResImg" alt="general-space-photo">
+                <p>Click the Sun or any of the planets in the image above to view more images!</p>
+            </div>
+            <div id="result-info" class="col-md-6 text-center text-black mt-3 p-3">
+                <h3>Click the Sun or any of the planets in the image above to view more information about their distance, orbit, size, and other fun facts!</h3>
+            </div>
         </div>
     </div>
     <br>
+
+    <!-- Mars Rover Section -->
+    <div class="container">
+        <div class="row">
+            <!-- Date input field and submit button and small text-->
+            <div class="col-md-4" id="mars-input"></div>
+            <!-- image -->
+            <div class="col-md-8" id="mars-result-info"></div>
+        </div>
+    </div>
+
+    <br>
+
     <div class="container">
         <div id="star-wars-logo" class="jumbotron text-center font-size-xl bg-transparent">
           ********    <img src="assets/images/Star_Wars.png">    ********
@@ -85,6 +101,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- JavaScript -->
 <script src="ssapp.js"></script>
+<!-- Below is calling a plugin that allows our image map to remain responsive, and therefore also functional. -->
+<script src="jquery.rwdImageMaps.js"></script>
+<script>
+    $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+    });
+</script>
 
 </body>
 </html>

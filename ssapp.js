@@ -72,11 +72,11 @@ $(".planet").on("click", function(event) {
             `);
             // result info section for planets:
             $("#result-info").html(`
-            <p id="planDistance">Distance: ${planets[j]} is ${distance[j]} million miles away from the Sun.</p>
-            <p id="planOrbit">Orbit: It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</p>
-            <p id="planSize">Size: ${size[j]}</p>
-            <p id="planSciFact">Science Fact: ${scienceFact[j]}</p>
-            <p id="planFunFact">Fun Fact: ${funFact[j]}</p>
+            <h5>Distance: </h5><p id="planDistance">${planets[j]} is ${distance[j]} million miles away from the Sun.</p>
+            <h5>Orbit: </h5><p id="planOrbit">It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</p>
+            <h5>Size: </h5><p id="planSize">${size[j]}</p>
+            <h5>Science Fact: </h5><p id="planSciFact">${scienceFact[j]}</p>
+            <h5>Fun Fact: </h5><p id="planFunFact">${funFact[j]}</p>
             `);
         }
     }

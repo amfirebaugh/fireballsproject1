@@ -22,9 +22,13 @@
     width: 100%;
 }
 .ssResImg {
-    max-height: 250px;
+    max-height: 300px;
+    max-width: 300px;
 }
 h5 {
     float: left;
     margin-right: 10px;
+}
+area[target] {
+    outline-color: none;
 }
