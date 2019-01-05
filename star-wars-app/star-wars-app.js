@@ -20,70 +20,21 @@ $(document).ready(function() {
         } else if (pop === "unknown") {
             $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
         } else {
-        for (i = 100000000000; i >= 100; i /= 10) {
-            if (pop / i >= 1) {
-                var numberOfIcons = pop / i;
-                for (j = 1; j <= numberOfIcons; j++) {
-                    $("#" + i + "-population").append("<img src=\"images/population" + i + ".png\" style=\"height: 25px; width: 25px;\">");
+            for (i = 100000000000; i >= 100; i /= 10) {
+                if (pop / i >= 1) {
+                    var numberOfIcons = pop / i;
+                    for (j = 1; j <= numberOfIcons; j++) {
+                        $("#" + i + "-population").append("<img src=\"images/population" + i + ".png\" style=\"height: 25px; width: 25px;\">");
+                    }
+                    pop = pop % i;
                 }
-                pop = pop % i;
             }
         }
     }
 
-        // if (pop === "unknown") {
-        //     $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
-        // } else if (pop <= 1000) {
-        //     var numberOfIcons = pop / 100;
-        // for (i = 1; i <= numberOfIcons; i++) {
-        //     $("#100-population").append("<img src=\"images/population100.png\" style=\"height: 25px; width: 25px;\">");
-        // }
-        // } else if (pop > 1000 && pop <= 10000) {
-        //     var numberOfIcons = pop / 1000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#1000-population").append("<img src=\"images/population1000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 10000 && pop <= 100000) {
-        //     var numberOfIcons = pop / 10000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#10000-population").append("<img src=\"images/population10000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 100000 && pop <= 1000000) {
-        //     var numberOfIcons = pop / 100000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#100000-population").append("<img src=\"images/population100000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 1000000 && pop <= 10000000) {
-        //     var numberOfIcons = pop / 1000000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#1000000-population").append("<img src=\"images/population1000000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 10000000 && pop <= 100000000) {
-        //     var numberOfIcons = pop / 10000000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#10000000-population").append("<img src=\"images/population10000000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 100000000 && pop <= 1000000000) {
-        //     var numberOfIcons = pop / 100000000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#100000000-population").append("<img src=\"images/population100000000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 1000000000 && pop <= 10000000000) {
-        //     var numberOfIcons = pop / 1000000000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#1000000000-population").append("<img src=\"images/population1000000000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 10000000000 && pop <= 100000000000) {
-        //     var numberOfIcons = pop / 10000000000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#10000000000-population").append("<img src=\"images/population10000000000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // } else if (pop > 100000000000 && pop <= 1000000000000) {
-        //     var numberOfIcons = pop / 100000000000;
-        //     for (i = 1; i <= numberOfIcons; i++) {
-        //         $("#100000000000-population").append("<img src=\"images/population100000000000.png\" style=\"height: 25px; width: 25px;\">");
-        //     }
-        // }
+    // Returns string with first letter upper case, used for terrain and climate fields
+    function upperCaseFirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
     
     // displayPlanetInfo function re-renders the HTML to display the appropriate content
@@ -104,8 +55,8 @@ $(document).ready(function() {
             planetPopulation = response.results[0].population;
 
             $("#planet-name").text("Name: " + response.results[0].name);
-            $("#planet-terrain").text("Terrain: " + response.results[0].terrain);
-            $("#planet-climate").text("Climate: " + response.results[0].climate);
+            $("#planet-terrain").text("Terrain: " + upperCaseFirst(response.results[0].terrain));
+            $("#planet-climate").text("Climate: " + upperCaseFirst(response.results[0].climate));
             // toString().replace... method puts commas in the numbers
             $("#planet-population").text("Population: " + response.results[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             if (selectedPlanet === "alderaan") {
@@ -137,7 +88,7 @@ $(document).ready(function() {
             planetPopulation = response.population;
 
             $("#planet-name").text("Name: " + response.name);
-            $("#planet-terrain").text("Terrain: " + response.terrain);
+            $("#planet-terrain").text("Terrain: " + upperCaseFirst(response.terrain));
             $("#planet-climate").text("Climate: " + response.climate);
             // toString().replace... method puts commas in the numbers
             $("#planet-population").text("Population: " + response.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
@@ -145,7 +96,7 @@ $(document).ready(function() {
                 $("#planet-population").append("...before the planet was blown up :(");
             }
 
-            $("#planet-img").attr("src", "images/" + selectedPlanet + ".png");
+            $("#planet-img").attr("src", "images/" + response.name + ".png");
 
             generatePopulationGraphic(planetPopulation);
         });
