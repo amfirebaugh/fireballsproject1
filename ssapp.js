@@ -1,19 +1,19 @@
-var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+// var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
-$.ajax({
-   url: queryURL,
-   method: "GET"
- }).then(function(response) {
-   console.log(response);
-   console.log(response.url);
-   var imgURL= response.url;
-   $('.container').css('background-image', `url(${imgURL})`);
-   $('.container').css('background-repeat', 'no-repeat');
-   $('.container').css('background-size', 'cover');
-   // below vh is viewport height, woohoo!
-   $('.container').css('height', '100vh');
-   $('.container').css('opacity', '0.7');
- });
+// $.ajax({
+//    url: queryURL,
+//    method: "GET"
+//  }).then(function(response) {
+//    console.log(response);
+//    console.log(response.url);
+//    var imgURL= response.url;
+//    $('.container').css('background-image', `url(${imgURL})`);
+//    $('.container').css('background-repeat', 'no-repeat');
+//    $('.container').css('background-size', 'cover');
+//    // below vh is viewport height, woohoo!
+//    $('.container').css('height', '100vh');
+//    $('.container').css('opacity', '0.7');
+//  });
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
@@ -82,6 +82,9 @@ $(".planet").on("click", function(event) {
     }
 });
 
+// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY
+
+
 
 /* 
    Note: date is automatically formatted as YYYY-MM-DD using the form's input type 'date'
@@ -91,9 +94,6 @@ $(".planet").on("click", function(event) {
 
 // globals
 var dt, yyyy, mm, dd, maxDate;
-
-// https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY
-var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 /* 
     get current day in YYYY-MM-DD for use as max value in form validation.  Else, 
@@ -127,26 +127,28 @@ enteredDate.setAttribute('max', maxDate);
 
 // listen for date-form submit
 document.querySelector('#date-form').addEventListener('submit', function(e) {
-   
-    // getResults --> Ajax call
-    getResults();
+    e.preventDefault();
+    console.log("PLEASE CLICK");
+    // Ajax call
+    console.log('valid date format', enteredDate.value);
+    console.log('make your ajax call')
+    var nasaDate = enteredDate.value;
+    console.log(nasaDate);
+    console.log(typeof(nasaDate));
+    // Ajax Call should go here...
+    var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + nasaDate + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+    console.log(queryURL2); // correct and working
+
     $.ajax({
         url: queryURL2,
         method: "GET"
-      }).then(function(response) {
+    }).then(function(response) {
         console.log(response);
         console.log(response.photos);
         console.log(response.photos.img_src);
-      });
-    e.preventDefault();
-});
-
-function getResults() {
-    
-    console.log('valid date format', enteredDate.value);
-    console.log('make your ajax call')
-    // Ajax Call should go here...
-
+        
+    });
     // clear date input after submission
     enteredDate.value = '';
-};
+});
+
