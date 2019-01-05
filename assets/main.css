@@ -29,6 +29,16 @@ h5 {
     float: left;
     margin-right: 10px;
 }
+
+#planet-img {
+    height: 200px;
+    width: 200px;
+}
+
+.population-legend, .population-graphic {
+    text-align: left;
+}
+
 /* trying to change planet outline issue
 area[target] {
     outline-color: none;
