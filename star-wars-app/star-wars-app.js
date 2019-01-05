@@ -15,16 +15,16 @@ $(document).ready(function() {
         $(".population-graphic").empty();
 
         if (selectedPlanet === "alderaan") {
-            $("#1000000000-population").append("<img src=\"images/populationdead.png\" style=\"height: 30px; width: 30px;\">");
-            $("#1000000000-population").append("<img src=\"images/populationdead.png\" style=\"height: 30px; width: 30x;\">");
+            $("#1000000000-population").append("<img src=\"star-wars-app/images/populationdead.png\" style=\"height: 30px; width: 30px;\">");
+            $("#1000000000-population").append("<img src=\"star-wars-app/images/populationdead.png\" style=\"height: 30px; width: 30x;\">");
         } else if (pop === "unknown") {
-            $("#unknown-population").append("<img src=\"images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
+            $("#unknown-population").append("<img src=\"star-wars-app/images/populationunknown.png\" style=\"height: 50px; width: 50px;\">");
         } else {
             for (i = 100000000000; i >= 100; i /= 10) {
                 if (pop / i >= 1) {
                     var numberOfIcons = pop / i;
                     for (j = 1; j <= numberOfIcons; j++) {
-                        $("#" + i + "-population").append("<img src=\"images/population" + i + ".png\" style=\"height: 25px; width: 25px;\">");
+                        $("#" + i + "-population").append("<img src=\"star-wars-app/images/population" + i + ".png\" style=\"height: 25px; width: 25px;\">");
                     }
                     pop = pop % i;
                 }
@@ -63,7 +63,7 @@ $(document).ready(function() {
                 $("#planet-population").append("...before the planet was blown up :(");
             }
             
-            $("#planet-img").attr("src", "images/" + selectedPlanet + ".png");
+            $("#planet-img").attr("src", "star-wars-app/images/" + selectedPlanet + ".png");
 
             generatePopulationGraphic(planetPopulation);
         });
@@ -96,7 +96,7 @@ $(document).ready(function() {
                 $("#planet-population").append("...before the planet was blown up :(");
             }
 
-            $("#planet-img").attr("src", "images/" + response.name + ".png");
+            $("#planet-img").attr("src", "star-wars-app/images/" + response.name + ".png");
 
             generatePopulationGraphic(planetPopulation);
         });
