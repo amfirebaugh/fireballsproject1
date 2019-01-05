@@ -1,7 +1,7 @@
 #planet-map, #result-image, #result-info, #dropdown-submit, #random-planet-button, #star-wars-panel, #trivia-text{
     border: 2px solid palevioletred;
     background: white;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
 #trivia-button {
     opacity: 1.0 !important;
@@ -17,3 +17,19 @@
     font-size: 70px;
     color: #F0F8FF;
 }
+/* below added by Allie for Solar System Section Specifically */
+#ssImg {
+    width: 100%;
+}
+.ssResImg {
+    max-height: 300px;
+    max-width: 300px;
+}
+h5 {
+    float: left;
+    margin-right: 10px;
+}
+/* trying to change planet outline issue
+area[target] {
+    outline-color: none;
+} */
