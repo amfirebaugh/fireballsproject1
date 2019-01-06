@@ -25,6 +25,7 @@
     max-height: 300px;
     max-width: 300px;
 }
+
 #result-info h5 {
     float: left;
     margin-right: 10px;
@@ -37,3 +38,18 @@ area[target] {
     max-height: 300px;
     max-width: 380px;
 }
+
+
+#planet-img {
+    height: 200px;
+    width: 200px;
+}
+
+.population-legend, .population-graphic {
+    text-align: left;
+}
+
+/* trying to change planet outline issue
+area[target] {
+    outline-color: none;
+} */
