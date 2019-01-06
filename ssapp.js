@@ -1,4 +1,6 @@
-var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+initMars();
+
+var queryURL = "http://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 $.ajax({
    url: queryURL,
@@ -13,7 +15,8 @@ $.ajax({
    // below vh is viewport height, woohoo!
    $('#wrapper').css('height', '100vh');
    $('#wrapper').css('opacity', '0.7');
- })
+
+ });
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
@@ -81,3 +84,81 @@ $(".planet").on("click", function(event) {
         }
     }
 });
+
+/* 
+   Note: date is automatically formatted as YYYY-MM-DD using the form's input type 'date'
+   The calendar dropdown is functional and errors will show as a pop-over. No hidden div needed.
+   Note: date validation is being done in the html via min and max attributes
+*/
+
+// globals
+var dt, yyyy, mm, dd, maxDate;
+
+/* 
+    get current day in YYYY-MM-DD for use as max value in form validation.  Else, 
+    someone can put a date as far into future as they wish :(
+*/
+
+// get today's date
+dt = new Date();
+
+// get year portion of Date
+yyyy = dt.getFullYear();
+
+// get month portion of Date, returns 0 - 11, any month < 10 is a single digit, append 0
+mm = (dt.getMonth() + 1);
+if (mm < 10) {
+    mm = `0${mm}`;
+}
+// get date portion of Date, any date < 10 is a single digit, append 0
+dd = dt.getDate();
+if (dd < 10) {
+    dd = `0${dd}`;
+}
+
+maxDate = `${yyyy}-${mm}-${dd}`;
+//console.log('maxdate is now', maxDate);
+
+// set min and max date attributes in form for validation.  Used 12/31 as starting place.
+var enteredDate = document.querySelector('#date');
+enteredDate.setAttribute('min','2012-12-31');
+enteredDate.setAttribute('max', maxDate);
+
+// listen for date-form submit
+document.querySelector('#date-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var nasaDate = enteredDate.value;
+
+    // Ajax Call
+    var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + nasaDate + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(response) {
+        $("#marsImage").html(`
+        <img id="resMarsImg" src="${response.photos[0].img_src}" alt="mars-rover-image">
+        <h5>Date: </h5><p>${nasaDate}</p>
+        `); 
+    });
+
+    // clear date input after submission
+    enteredDate.value = '';
+});
+
+function initMars() {
+    var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(response) {
+        $("#marsImage").html(`
+        <img id="resMarsImg" src="${response.photos[11].img_src}" alt="mars-rover-image">
+        <h5>Date: </h5><p>2015-3-14 (Pi Day!)</p>
+        `);
+        // I just liked this index for the image of the object, it usually provides a photo in color and is usually a more interesting photo than index 0
+    });
+}
+
