@@ -3,6 +3,7 @@ $(document).ready(function() {
     // Tatooine is selected on the dropdown by default
     var selectedPlanet = "tatooine";
     var planetPopulation;
+    var residentQueryURL;
 
     // When the selection on the dropdown changes...
     $("select.planet-selection").change(function(){
@@ -66,6 +67,21 @@ $(document).ready(function() {
             $("#planet-img").attr("src", "star-wars-app/images/" + selectedPlanet + ".png");
 
             generatePopulationGraphic(planetPopulation);
+
+            var residentsArray = [];
+
+            for (i = 0; i < response.results[0].residents.length; i++) {
+
+                residentQueryURL = response.results[0].residents[i];
+
+                $.ajax({
+                    url: residentQueryURL,
+                    method: "GET"
+                }).then(function(response) {
+                    residentsArray.push(response.name);
+                    $("#planet-residents").html(residentsArray.join(", "));
+                });
+            }
         });
 
     }
@@ -99,6 +115,21 @@ $(document).ready(function() {
             $("#planet-img").attr("src", "star-wars-app/images/" + response.name + ".png");
 
             generatePopulationGraphic(planetPopulation);
+
+            var residentsArray = [];
+
+            for (i = 0; i < response.residents.length; i++) {
+
+                residentQueryURL = response.residents[i];
+
+                $.ajax({
+                    url: residentQueryURL,
+                    method: "GET"
+                }).then(function(response) {
+                    residentsArray.push(response.name);
+                    $("#planet-residents").html(residentsArray.join(", "));
+                });
+            }
         });
 
     }
