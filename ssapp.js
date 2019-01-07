@@ -1,5 +1,6 @@
 initMars();
 
+/*
 var queryURL = "http://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 $.ajax({
@@ -14,9 +15,10 @@ $.ajax({
    $('#wrapper').css('background-size', 'cover');
    // below vh is viewport height, woohoo!
    $('#wrapper').css('height', '100vh');
-   $('#wrapper').css('opacity', '0.7');
+   //$('#wrapper').css('opacity', '0.7');
 
  });
+ */
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
@@ -50,16 +52,21 @@ $("#sun").on("click", function(event) {
     event.preventDefault();
     console.log(imageSun);
     // result image section for the Sun:
-    $("#result-image").html(`<img class="ssResImg" src="${imageSun}">
-    <p id="imgSunCap">${imageSunCap}</p>
+    $("#result-image").html(`<img class="ssResImg border border-warning rounded" src="${imageSun}">
+    <p id="imgSunCap" class="font-weight-bold mt-3">${imageSunCap}</p>
     `);
     // result info section for the Sun:
     $("#result-info").html(`
-    <h5>Distance: </h5><p id="sunDistance">${distanceSun}</p>
-    <h5>Orbit: </h5><p id="sunOrbit">${orbitSun}</p>
-    <h5>Size: </h5><p id="sunSize">You can fit ${sizeSun} Earth's into the Sun!</p>
-    <h5>Science Fact: </h5><p id="sunSciFact">${scienceFactSun}</p>
-    <h5>Fun Fact: </h5><p id="sunFunFact">${funFactSun}</p>
+    <h5>Distance:</h5>
+    <div id="sunDistance" class="mb-4">${distanceSun}</div>
+    <h5>Orbit:</h5>
+    <div id="sunOrbit" class="mb-4">${orbitSun}</div>
+    <h5>Size:</h5>
+    <div id="sunSize" class="mb-4">You can fit ${sizeSun} Earth's into the Sun!</div>
+    <h5>Science Fact:</h5>
+    <div id="sunSciFact" class="mb-4">${scienceFactSun}</div>
+    <h5>Fun Fact: </h5>
+    <div id="sunFunFact" class="mb-4">${funFactSun}</div>
     `);
 });
 
@@ -70,16 +77,21 @@ $(".planet").on("click", function(event) {
         if (planets[j] === planetName) {
             console.log(planets[j]);
             // result image section for planets:
-            $("#result-image").html(`<img class="ssResImg" src="${images[j]}">
-            <p id="imgCap">${imgCaption[j]}</p>
+            $("#result-image").html(`<img class="ssResImg border border-primary rounded" src="${images[j]}">
+            <p id="imgCap" class="font-weight-bold mt-3">${imgCaption[j]}</p>
             `);
             // result info section for planets:
             $("#result-info").html(`
-            <h5>Distance: </h5><p id="planDistance">${planets[j]} is ${distance[j]} million miles away from the Sun.</p>
-            <h5>Orbit: </h5><p id="planOrbit">It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</p>
-            <h5>Size: </h5><p id="planSize">${size[j]}</p>
-            <h5>Science Fact: </h5><p id="planSciFact">${scienceFact[j]}</p>
-            <h5>Fun Fact: </h5><p id="planFunFact">${funFact[j]}</p>
+            <h5>Distance:</h5>
+            <div id="planDistance" class="mb-4">${planets[j]} is ${distance[j]} million miles away from the Sun.</div>
+            <h5>Orbit:</h5>
+            <div id="planOrbit" class="mb-4">It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</div>
+            <h5>Size:</h5>
+            <div id="planSize" class="mb-4">${size[j]}</div>
+            <h5>Science Fact:</h5>
+            <div id="planSciFact" class="mb-4">${scienceFact[j]}</div>
+            <h5>Fun Fact:</h5>
+            <div id="planFunFact" class="mb-4">${funFact[j]}</div>
             `);
         }
     }
@@ -155,8 +167,8 @@ function initMars() {
         method: "GET"
     }).then(function(response) {
         $("#marsImage").html(`
-        <img id="resMarsImg" src="${response.photos[11].img_src}" alt="mars-rover-image">
-        <h5>Date: </h5><p>2015-3-14 (Pi Day!)</p>
+        <img id="resMarsImg" class="border rounded mb-3" src="${response.photos[11].img_src}" alt="mars-rover-image">
+        <p><span class="font-weight-bold">Date: </span> 2015-3-14 (Pi Day!)</p>
         `);
         // I just liked this index for the image of the object, it usually provides a photo in color and is usually a more interesting photo than index 0
     });

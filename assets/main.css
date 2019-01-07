@@ -1,22 +1,48 @@
-#planet-map, #result-image, #result-info, #dropdown-submit, #random-planet-button, #star-wars-panel, #trivia-text{
-    border: 2px solid palevioletred;
-    background: white;
-    /* opacity: 0.5; */
+#newTitle {
+    font-family: 'Russo One', sans-serif;
+    font-size: 8em;
 }
+
+#solar-wrapper {
+    background-image: url("./images/background3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+map:active {
+    text-decoration: none;
+}
+
+#intro {
+    font-size: 2em;
+}
+
+#starwars-wrapper {
+    background-color: goldenrod;
+}
+
+#planet-map, #result-image, #dropdown-submit, 
+#random-planet-button, #star-wars-panel, #trivia-text,
+#marsImage {
+    background: #999;
+}
+
+#mars-rover, #result-info {
+    background-color: #333;
+}
+
 #trivia-button {
     opacity: 1.0 !important;
 }
 #trivia-btn {
     font-size: 30px;
 }
-#title {
-    font-family: 'Monoton', cursive;
-    font-size: 85px;
-}
+
 #star-wars-logo {
     font-size: 70px;
     color: #F0F8FF;
 }
+
 /* below added by Allie for Solar System Section Specifically */
 #ssImg {
     width: 100%;
@@ -26,19 +52,21 @@
     max-width: 300px;
 }
 
-#result-info h5 {
-    float: left;
-    margin-right: 10px;
+.border {
+    border-width: 4px !important;
 }
-/* trying to change planet outline issue
-area[target] {
-    outline-color: none;
-} */
+
+
+/* remove image map blue outlines once clicked */
+
+img[usemap], map area{
+    outline: none;
+}
+
 #resMarsImg {
     max-height: 300px;
     max-width: 380px;
 }
-
 
 #planet-img {
     height: 200px;
