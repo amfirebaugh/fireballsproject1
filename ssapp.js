@@ -83,7 +83,8 @@ $(".planet").on("click", function(event) {
             // result info section for planets:
             $("#result-info").html(`
             <h5>Distance:</h5>
-            <div id="planDistance" class="mb-4">${planets[j]} is ${distance[j]} million miles away from the Sun.</p></div>
+            <div id="planDistance" class="mb-4">${planets[j]} is ${distance[j]} million miles away from the Sun.</div>
+            <h5>Orbit:</h5>
             <div id="planOrbit" class="mb-4">It takes ${planets[j]} ${orbits[j]} days to orbit around the Sun. This is how long a year is on ${planets[j]}.</div>
             <h5>Size:</h5>
             <div id="planSize" class="mb-4">${size[j]}</div>

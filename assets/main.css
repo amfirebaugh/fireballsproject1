@@ -1,7 +1,16 @@
+#newTitle {
+    font-family: 'Russo One', sans-serif;
+    font-size: 8em;
+}
+
 #solar-wrapper {
     background-image: url("./images/background3.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+map:active {
+    text-decoration: none;
 }
 
 #intro {
@@ -28,10 +37,6 @@
 #trivia-btn {
     font-size: 30px;
 }
-#title {
-    font-family: 'Monoton', cursive;
-    font-size: 85px;
-}
 
 #star-wars-logo {
     font-size: 70px;
@@ -51,10 +56,13 @@
     border-width: 4px !important;
 }
 
-/* trying to change planet outline issue
-area[target] {
-    outline-color: none;
-} */
+
+/* remove image map blue outlines once clicked */
+
+img[usemap], map area{
+    outline: none;
+}
+
 #resMarsImg {
     max-height: 300px;
     max-width: 380px;
