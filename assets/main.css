@@ -4,6 +4,14 @@
    General Styles
    ========================================================================== */
 
+html {
+    background-image: linear-gradient(grey, black);
+}
+
+body {
+    max-width: 1600px;
+    margin: 0 auto;
+}
 
 #newTitle {
     font-family: 'Russo One', sans-serif;
@@ -24,7 +32,7 @@
     background-color: #333;
 }
 
-.border {
+.border, .border-left, .border-right, .border-bottom, .border-top  {
     border-width: 4px !important;
 }
 
@@ -93,12 +101,17 @@ img[usemap], map area{
 }
 
 #star-wars-logo {
-    font-size: 70px;
-    color: #F0F8FF;
+    background-color: black;
 }
 
 #startwars-info {
     background: url(../star-wars-app/images/tatooinebackground.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#star-wars-logo {
+    background: url(../star-wars-app/images/starfield.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -126,8 +139,13 @@ img[usemap], map area{
     color: #fff;
 }
 
-#planet-residents {
+
+#planet-residents, #residents-wrapper, #random-wrapper {
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
+}
+
+#planet-residents {
+    background-color: #333;
 }

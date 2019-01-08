@@ -26,6 +26,7 @@ $(document).ready(function() {
                     var numberOfIcons = pop / i;
                     for (j = 1; j <= numberOfIcons; j++) {
                         $("#" + i + "-population").append("<img src=\"star-wars-app/images/population" + i + ".png\" style=\"height: 25px; width: 25px;\">");
+                       
                     }
                     pop = pop % i;
                 }
@@ -118,7 +119,7 @@ $(document).ready(function() {
 
             var residentsArray = [];
 
-            for (i = 0; i < response.residents.length; i++) {
+            for (var i = 0; i < response.residents.length; i++) {
 
                 residentQueryURL = response.residents[i];
 
@@ -128,6 +129,7 @@ $(document).ready(function() {
                 }).then(function(response) {
                     residentsArray.push(response.name);
                     $("#planet-residents").html(residentsArray.join(", "));
+                    
                 });
             }
         });
