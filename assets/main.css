@@ -1,24 +1,17 @@
+
+
+/* ==========================================================================
+   General Styles
+   ========================================================================== */
+
+
 #newTitle {
     font-family: 'Russo One', sans-serif;
     font-size: 8em;
 }
 
-#solar-wrapper {
-    background-image: url("./images/background3.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-map:active {
-    text-decoration: none;
-}
-
 #intro {
     font-size: 2em;
-}
-
-#starwars-wrapper {
-    background-color: goldenrod;
 }
 
 #planet-map, #result-image, #dropdown-submit, 
@@ -31,31 +24,34 @@ map:active {
     background-color: #333;
 }
 
-#trivia-button {
-    opacity: 1.0 !important;
-}
-#trivia-btn {
-    font-size: 30px;
+.border {
+    border-width: 4px !important;
 }
 
-#star-wars-logo {
-    font-size: 70px;
-    color: #F0F8FF;
+
+/* ==========================================================================
+   Solar System
+   ========================================================================== */
+
+#solar-wrapper {
+    background-image: url("./images/background3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+map:active {
+    text-decoration: none;
 }
 
 /* below added by Allie for Solar System Section Specifically */
 #ssImg {
     width: 100%;
 }
+
 .ssResImg {
     max-height: 300px;
     max-width: 300px;
 }
-
-.border {
-    border-width: 4px !important;
-}
-
 
 /* remove image map blue outlines once clicked */
 
@@ -63,21 +59,75 @@ img[usemap], map area{
     outline: none;
 }
 
+#trivia-button {
+    opacity: 1.0 !important;
+}
+
+#trivia-btn {
+    font-size: 30px;
+}
+
+
+/* ==========================================================================
+   Mars Section
+   ========================================================================== */
+
+
 #resMarsImg {
     max-height: 300px;
     max-width: 380px;
 }
 
-#planet-img {
-    height: 200px;
-    width: 200px;
+#marsImage img {
+    height: 275px;
+    width: 350px;
+}
+
+
+/* ==========================================================================
+   Star Wars
+   ========================================================================== */
+
+#starwars-wrapper {
+    background-color: goldenrod;
+}
+
+#star-wars-logo {
+    font-size: 70px;
+    color: #F0F8FF;
+}
+
+#startwars-info {
+    background: url(../star-wars-app/images/tatooinebackground.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#star-wars-logo img {
+    height: 300px;
+    width: 500px;
 }
 
 .population-legend, .population-graphic {
     text-align: left;
 }
 
-/* trying to change planet outline issue
-area[target] {
-    outline-color: none;
-} */
+#planet-details {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+#planet-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: #333;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+#planet-residents {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+}

@@ -98,7 +98,7 @@
     </div>
 
     <!-- START STAR WARS -->
-    <div id="starwars-wrapper" class="mt-">
+    <div id="starwars-wrapper" class="pb-5">
 
         <div class="container">
             <div id="star-wars-logo" class="jumbotron text-center font-size-xl bg-transparent">
@@ -107,7 +107,7 @@
         </div>
 
         <!-- Star Wars planet selection -->
-        <div class="container">
+        <div id="startwars-info" class="container pt-3">
             <!-- Start row 1 -->
             <div class="row">
                 <div class="col-md-6" style="text-align: center;">
@@ -175,21 +175,21 @@
                         <option value="jakku">Jakku</option>
                     </select>
         
-                    <button type="button" class="btn btn-primary" id="submit-btn">Submit</button>
+                    <button type="button" class="btn btn-secondary btn-lg" id="submit-btn">Submit</button>
                 <!-- End planet selection -->
                 </div>
         
                 <!-- Random planet -->
                 <div class="col-md-6" style="text-align: center;">
+                    <button type="button" class="btn btn-secondary btn-lg mb-3" id="random-btn">Random Planet</button>
                     <p>Or select a random planet:</p>
-                    <button type="button" class="btn btn-primary" id="random-btn">Random Planet</button>
                 </div>
             <!-- End row -->
             </div>
             <!-- Start row 2 -->
             <div class="row">
                 <!-- Start planet details -->
-                <div class="col-md-6" style="text-align: center;">
+                <div id="planet-details" class="col-md-6 pl-5 mb-5" style="text-align: center;">
                     <div class="row" id="planet-name">
                         Name: 
                     </div>
@@ -277,12 +277,14 @@
         
                 <!-- End planet details -->
                 </div>
-                    <div class="col-md-6" style="text-align: center;">
+                    <div class="col-md-6 mb-5" style="text-align: center;">
                         <img id="planet-img"> <br><br>
                         Residents: <div id="planet-residents"></div> 
                     </div>
+                    
             <!-- End row 2-->
             </div>
+
         <!-- End container -->
         </div>
     <!-- End Star Wars Wrapper -->

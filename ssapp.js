@@ -150,8 +150,8 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
         method: "GET"
     }).then(function(response) {
         $("#marsImage").html(`
-        <img id="resMarsImg" src="${response.photos[0].img_src}" alt="mars-rover-image">
-        <h5>Date: </h5><p>${nasaDate}</p>
+        <img id="resMarsImg" class="border rounded mt-3" src="${response.photos[0].img_src}" alt="mars-rover-image">
+        <h5 class="mt-3">Date: </h5><p>${nasaDate}</p>
         `); 
     });
 
@@ -159,6 +159,8 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
     enteredDate.value = '';
 });
 
+
+// default Mars image on page load
 function initMars() {
     var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
@@ -170,7 +172,6 @@ function initMars() {
         <img id="resMarsImg" class="border rounded mb-3" src="${response.photos[11].img_src}" alt="mars-rover-image">
         <p><span class="font-weight-bold">Date: </span> 2015-3-14 (Pi Day!)</p>
         `);
-        // I just liked this index for the image of the object, it usually provides a photo in color and is usually a more interesting photo than index 0
     });
 }
 
