@@ -1,6 +1,5 @@
 initMars();
 
-/*
 var queryURL = "http://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 $.ajax({
@@ -9,16 +8,12 @@ $.ajax({
  }).then(function(response) {
    console.log(response);
    console.log(response.url);
+//    console.log(response.explanation);
    var imgURL= response.url;
-   $('#wrapper').css('background-image', `url(${imgURL})`);
-   $('#wrapper').css('background-repeat', 'no-repeat');
-   $('#wrapper').css('background-size', 'cover');
-   // below vh is viewport height, woohoo!
-   $('#wrapper').css('height', '100vh');
-   //$('#wrapper').css('opacity', '0.7');
-
+   $('#NASA-APOD-img').html(`
+   <img id="APOD-img" src="${imgURL}" alt="NASA-Picture-of-the-Day">
+   `)
  });
- */
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];

@@ -57,8 +57,13 @@ map:active {
 }
 
 .ssResImg {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 400px;
+    max-width: 100%;
+}
+
+#space-load-img {
+    max-height: 400px;
+    max-width: 100%;
 }
 
 /* remove image map blue outlines once clicked */
@@ -73,6 +78,12 @@ img[usemap], map area{
 
 #trivia-btn {
     font-size: 30px;
+}
+
+/* below added by Allie specifically for APOD section */
+#APOD-img {
+    max-height: 400px;
+    max-width: 100%;
 }
 
 
