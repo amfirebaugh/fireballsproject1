@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    max-width: 1600px;
+    max-width: 1266px;
     margin: 0 auto;
 }
 
@@ -97,29 +97,37 @@ img[usemap], map area{
    ========================================================================== */
 
 #starwars-wrapper {
-    background-color: goldenrod;
-    /* background-image: url(..star-wars-app/images/wookieebackground.jpg); */
+    background: url(../star-wars-app/images/starstruck.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 3px solid goldenrod;
 }
+
 
 #star-wars-logo {
     background-color: black;
+    background: transparent;
+    
 }
 
-#startwars-info {
+#starwars-info {
     background: url(../star-wars-app/images/tatooinebackground.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    
+   
 }
 
-#star-wars-logo {
+/* #star-wars-logo {
     background: url(../star-wars-app/images/starfield.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 #star-wars-logo img {
     height: 300px;
     width: 500px;
+    
 }
 
 .population-legend, .population-graphic {
