@@ -19,7 +19,7 @@ $(document).ready(function() {
     wookieeSound6.setAttribute("src", "star-wars-app/sounds/wookieesound6.mp3");
 
     // When the selection on the dropdown changes...
-    $("select.planet-selection").change(function(){
+    $("select#planet-selection").change(function(){
         // Store the value of the selected planet into a variable
         selectedPlanet = $(this).children("option:selected").val();
     });
