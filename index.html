@@ -98,16 +98,16 @@
     </div>
 
     <!-- START STAR WARS -->
-    <div id="starwars-wrapper" class="mt-">
+    <div id="starwars-wrapper" class="pb-5">
 
-        <div class="container">
-            <div id="star-wars-logo" class="jumbotron text-center font-size-xl bg-transparent">
-                <img src="assets/images/Star_Wars.png">
+        <div class="container pt-2 pl-0 pr-0">
+            <div id="star-wars-logo" class="text-center pt-3 pb-3">
+                <img src="assets/images/Star_Wars.png" class="border">
             </div>
         </div>
 
         <!-- Star Wars planet selection -->
-        <div class="container">
+        <div id="startwars-info" class="container pt-3">
             <!-- Start row 1 -->
             <div class="row">
                 <div class="col-md-6" style="text-align: center;">
@@ -175,21 +175,21 @@
                         <option value="jakku">Jakku</option>
                     </select>
         
-                    <button type="button" class="btn btn-dark" id="submit-btn">Submit</button>
+                    <button type="button" class="btn btn-secondary btn-lg" id="submit-btn">Submit</button>
                 <!-- End planet selection -->
                 </div>
         
                 <!-- Random planet -->
-                <div class="col-md-6" style="text-align: center;">
+                <div id="random-wrapper" class="col-md-6" style="text-align: center;">
+                    <button type="button" class="btn btn-secondary btn-lg mb-3" id="random-btn">Random Planet</button>
                     <p>Or select a random planet:</p>
-                    <button type="button" class="btn btn-dark" id="random-btn">Random Planet</button>
                 </div>
             <!-- End row -->
             </div>
             <!-- Start row 2 -->
             <div class="row">
                 <!-- Start planet details -->
-                <div class="col-md-6" style="text-align: center;">
+                <div id="planet-details" class="col-md-6 pl-5 mb-5" style="text-align: center;">
                     <div class="row" id="planet-name">
                         Name: 
                     </div>
@@ -209,80 +209,82 @@
                         <div class="col-md-3 population-legend">
                             100:
                         </div>
-                        <div class="col-md-9 population-graphic" id="100-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="100-population"></div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             1,000:
                         </div>
-                        <div class="col-md-9 population-graphic" id="1000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="1000-population"></div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             10,000:
                         </div>
-                        <div class="col-md-9 population-graphic" id="10000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="10000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             100,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="100000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="100000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             1,000,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="1000000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="1000000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             10,000,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="10000000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="10000000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             100,000,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="100000000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="100000000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             1,000,000,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="1000000000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="1000000000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             10,000,000,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="10000000000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="10000000000-population"></div>
                     </div>
         
                     <div class="row">
                         <div class="col-md-3 population-legend">
                             100,000,000,000: 
                         </div>
-                        <div class="col-md-9 population-graphic" id="100000000000-population"></div>
+                        <div class="col-md-7 offset-2 population-graphic" id="100000000000-population"></div>
                     </div>
         
                 <!-- End planet details -->
                 </div>
-                    <div class="col-md-6" style="text-align: center;">
+                    <div id="residents-wrapper" class="col-md-6 mb-5" style="text-align: center;">
                         <img id="planet-img"> <br><br>
                         Residents: <div id="planet-residents"></div> 
                     </div>
+                    
             <!-- End row 2-->
             </div>
+
             <!-- Start row 3 -->
             <div class="row">
 
