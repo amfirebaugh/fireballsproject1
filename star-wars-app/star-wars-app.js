@@ -4,6 +4,19 @@ $(document).ready(function() {
     var selectedPlanet = "tatooine";
     var planetPopulation;
     var residentQueryURL;
+    var planetName;
+    var wookieeSound1 = document.createElement("audio");
+    wookieeSound1.setAttribute("src", "star-wars-app/sounds/wookieesound1.mp3");
+    var wookieeSound2 = document.createElement("audio");
+    wookieeSound2.setAttribute("src", "star-wars-app/sounds/wookieesound2.mp3");
+    var wookieeSound3 = document.createElement("audio");
+    wookieeSound3.setAttribute("src", "star-wars-app/sounds/wookieesound3.mp3");
+    var wookieeSound4 = document.createElement("audio");
+    wookieeSound4.setAttribute("src", "star-wars-app/sounds/wookieesound4.mp3");
+    var wookieeSound5 = document.createElement("audio");
+    wookieeSound5.setAttribute("src", "star-wars-app/sounds/wookieesound5.mp3");
+    var wookieeSound6 = document.createElement("audio");
+    wookieeSound6.setAttribute("src", "star-wars-app/sounds/wookieesound6.mp3");
 
     // When the selection on the dropdown changes...
     $("select.planet-selection").change(function(){
@@ -101,7 +114,8 @@ $(document).ready(function() {
             method: "GET"
         }).then(function(response) {
 
-            // var name = response.name;
+            planetName = response.name.toLowerCase();
+            $('#planet-selection').val(planetName);
             planetPopulation = response.population;
 
             $("#planet-name").text("Name: " + response.name);
@@ -138,5 +152,29 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit-btn", displayChosenPlanetInfo);
     $(document).on("click", "#random-btn", displayRandomPlanetInfo);
+
+    $(document).on("click", "#wookiee-btn-1", function(){
+        wookieeSound1.play();
+    });
+
+    $(document).on("click", "#wookiee-btn-2", function(){
+        wookieeSound2.play();
+    });
+
+    $(document).on("click", "#wookiee-btn-3", function(){
+        wookieeSound3.play();
+    });
+
+    $(document).on("click", "#wookiee-btn-4", function(){
+        wookieeSound4.play();
+    });
+
+    $(document).on("click", "#wookiee-btn-5", function(){
+        wookieeSound5.play();
+    });
+
+    $(document).on("click", "#wookiee-btn-6", function(){
+        wookieeSound6.play();
+    });
 
 });
