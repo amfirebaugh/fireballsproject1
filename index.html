@@ -110,7 +110,15 @@
         <div id="startwars-info" class="container pt-3">
             <!-- Start row 1 -->
             <div class="row">
+                <div class="col-md-12">
+                    <p class="font-weight-bold lead text-center p-3 text-light">Welcome to the Star Wars section! Have fun learning about the different planets in the Star Wars Universe by...</p>
+                </div>
+            <!-- End row 1 -->
+            </div>
+            <!-- Start row 2 -->
+            <div class="row">
                 <div class="col-md-6" style="text-align: center;">
+                    <p class="font-weight-bold lead text-center text-light">Selecting a planet from the drop-down:</p>
                     <select id="planet-selection">
                         <option value="tatooine">Tatooine</option>
                         <option value="alderaan">Alderaan</option>
@@ -181,12 +189,12 @@
         
                 <!-- Random planet -->
                 <div id="random-wrapper" class="col-md-6" style="text-align: center;">
+                    <p class="font-weight-bold lead text-center text-light">Or select a random planet:</p>
                     <button type="button" class="btn btn-secondary btn-lg mb-3" id="random-btn">Random Planet</button>
-                    <p>Or select a random planet:</p>
                 </div>
-            <!-- End row -->
+            <!-- End row 2-->
             </div>
-            <!-- Start row 2 -->
+            <!-- Start row 3 -->
             <div class="row">
                 <!-- Start planet details -->
                 <div id="planet-details" class="col-md-6 pl-5 mb-5" style="text-align: center;">
@@ -282,10 +290,28 @@
                         Residents: <div id="planet-residents"></div> 
                     </div>
                     
-            <!-- End row 2-->
+            <!-- End row 3-->
             </div>
 
-            <!-- Start row 3 -->
+        <!-- End container -->
+        </div>
+
+        <!-- Start Wookiee container -->
+        <div class="container mt-3" id="wookiee-container">
+            <!-- Start row 4 -->
+            <div class="row">
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-8">
+                    <p class="font-weight-bold lead text-center text-light">Press the buttons below to hear different noises from our furry friends, the Wookiees!</p>
+                </div>
+
+                <div class="col-md-2"></div>
+            <!-- End row 4 -->
+            </div>
+
+            <!-- Start row 5 -->
             <div class="row">
 
                 <div class="col-md-2">
@@ -311,9 +337,9 @@
                 <div class="col-md-2">
                     <button type="button" class="btn btn-dark" id="wookiee-btn-6">Sound 6</button>
                 </div>
-            <!-- End row 3 -->
+            <!-- End row 5 -->
             </div>
-        <!-- End container -->
+        <!-- End Wookiee container -->
         </div>
     <!-- End Star Wars Wrapper -->
 </div>
