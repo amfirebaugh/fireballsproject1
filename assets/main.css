@@ -101,7 +101,6 @@ img[usemap], map area{
     background-size: cover;
     background-repeat: no-repeat;
     border-top: 3px solid goldenrod;
-    
 }
 
 
@@ -158,4 +157,8 @@ img[usemap], map area{
 
 #planet-residents {
     background-color: #333;
+}
+
+#wookiee-container {
+    background-image: url(../star-wars-app/images/wookieebackground.jpg);
 }
