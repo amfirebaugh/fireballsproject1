@@ -176,3 +176,13 @@ img[usemap], map area{
 #wookiee-container {
     background-image: url(../star-wars-app/images/wookieebackground.jpg);
 }
+
+.wookiee-btn {
+    width: 80%;
+    height: 100%;
+    font-weight: bold;
+}
+
+.wookiee-btn-list-item {
+    list-style: none;
+}
