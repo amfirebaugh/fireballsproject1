@@ -1,6 +1,5 @@
 initMars();
 
-/*
 var queryURL = "http://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 $.ajax({
@@ -9,16 +8,15 @@ $.ajax({
  }).then(function(response) {
    console.log(response);
    console.log(response.url);
+//    console.log(response.explanation);
    var imgURL= response.url;
-   $('#wrapper').css('background-image', `url(${imgURL})`);
-   $('#wrapper').css('background-repeat', 'no-repeat');
-   $('#wrapper').css('background-size', 'cover');
-   // below vh is viewport height, woohoo!
-   $('#wrapper').css('height', '100vh');
-   //$('#wrapper').css('opacity', '0.7');
-
+   var APODtitle = response.title;
+   console.log(APODtitle);
+   $('#NASA-APOD-img').html(`
+   <img id="APOD-img" class="border rounded mb-3" src="${imgURL}" alt="NASA-Picture-of-the-Day">
+   <span class="mt-5 font-weight-bold">Title from NASA: </span> "${APODtitle}"
+   `)
  });
- */
 
 // mercury(0), venus(1), earth(2), mars(3), jupiter(4), saturn(5), uranus(6), neptune(7), pluto(8)
 var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
@@ -150,7 +148,7 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
         method: "GET"
     }).then(function(response) {
         $("#marsImage").html(`
-        <img id="resMarsImg" class="border rounded mt-3" src="${response.photos[0].img_src}" alt="mars-rover-image">
+        <img id="resMarsImg" class="border rounded mb-3" src="${response.photos[0].img_src}" alt="mars-rover-image">
         <h5 class="mt-3">Date: </h5><p>${nasaDate}</p>
         `); 
     });
