@@ -18,6 +18,9 @@ $(document).ready(function() {
     var wookieeSound6 = document.createElement("audio");
     wookieeSound6.setAttribute("src", "star-wars-app/sounds/wookieesound6.mp3");
 
+    // Sets the planet-img div to the Death Star so the box isn't just grey before a planet is selected
+    $("#planet-img").attr("src", "star-wars-app/images/deathstar.png");
+
     // When the selection on the dropdown changes...
     $("select#planet-selection").change(function(){
         // Store the value of the selected planet into a variable
