@@ -87,6 +87,10 @@ $(document).ready(function() {
 
             var residentsArray = [];
 
+            if (residentsArray.length < 1) {
+                $("#planet-residents").html("");
+            }
+
             for (i = 0; i < response.results[0].residents.length; i++) {
 
                 residentQueryURL = response.results[0].residents[i];
@@ -135,6 +139,10 @@ $(document).ready(function() {
             generatePopulationGraphic(planetPopulation);
 
             var residentsArray = [];
+
+            if (residentsArray.length < 1) {
+                $("#planet-residents").html("");
+            }
 
             for (var i = 0; i < response.residents.length; i++) {
 
