@@ -10,8 +10,11 @@ $.ajax({
    console.log(response.url);
 //    console.log(response.explanation);
    var imgURL= response.url;
+   var APODtitle = response.title;
+   console.log(APODtitle);
    $('#NASA-APOD-img').html(`
-   <img id="APOD-img" src="${imgURL}" alt="NASA-Picture-of-the-Day">
+   <img id="APOD-img" class="border rounded mb-3" src="${imgURL}" alt="NASA-Picture-of-the-Day">
+   <span class="mt-5 font-weight-bold">Title from NASA: </span> "${APODtitle}"
    `)
  });
 
@@ -145,7 +148,7 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
         method: "GET"
     }).then(function(response) {
         $("#marsImage").html(`
-        <img id="resMarsImg" class="border rounded mt-3" src="${response.photos[0].img_src}" alt="mars-rover-image">
+        <img id="resMarsImg" class="border rounded mb-3" src="${response.photos[0].img_src}" alt="mars-rover-image">
         <h5 class="mt-3">Date: </h5><p>${nasaDate}</p>
         `); 
     });

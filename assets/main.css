@@ -24,11 +24,11 @@ body {
 
 #planet-map, #result-image, #dropdown-submit, 
 #random-planet-button, #star-wars-panel, #trivia-text,
-#marsImage {
+#marsImage, #NASA-APOD-img {
     background: #999;
 }
 
-#mars-rover, #result-info {
+#mars-rover, #result-info, #NASA-APOD-info {
     background-color: #333;
 }
 
@@ -80,7 +80,9 @@ img[usemap], map area{
     font-size: 30px;
 }
 
-/* below added by Allie specifically for APOD section */
+
+
+/* below added by Allie for APOD section */
 #APOD-img {
     max-height: 400px;
     max-width: 100%;
@@ -91,15 +93,16 @@ img[usemap], map area{
    Mars Section
    ========================================================================== */
 
+/* below altered by Allie for Mars Rover section */
 
 #resMarsImg {
     max-height: 300px;
-    max-width: 380px;
+    max-width: 100%
 }
 
 #marsImage img {
     height: 275px;
-    width: 350px;
+    max-width: 100%
 }
 
 
