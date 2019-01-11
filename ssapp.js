@@ -52,6 +52,9 @@ $("#sun").on("click", function(event) {
     // result image section for the Sun:
     $("#result-image").html(`<img class="ssResImg border border-warning rounded" src="${imageSun}">
     <p id="imgSunCap" class="font-weight-bold mt-3">${imageSunCap}</p>
+    <br>
+    <br>
+    <a id="return-to-map" href="#map-start">CLICK HERE TO RETURN TO SOLAR SYSTEM!!</a>
     `);
     // result info section for the Sun:
     $("#result-info").html(`
@@ -66,6 +69,9 @@ $("#sun").on("click", function(event) {
     <h5>Fun Fact: </h5>
     <div id="sunFunFact" class="mb-4">${funFactSun}</div>
     `);
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#result-info").offset().top
+    }, 1300);
 });
 
 $(".planet").on("click", function(event) {
@@ -77,6 +83,9 @@ $(".planet").on("click", function(event) {
             // result image section for planets:
             $("#result-image").html(`<img class="ssResImg border border-primary rounded" src="${images[j]}">
             <p id="imgCap" class="font-weight-bold mt-3">${imgCaption[j]}</p>
+            <br>
+            <br> 
+            <a id="return-to-map" href="#map-start">CLICK HERE TO RETURN TO SOLAR SYSTEM MAP!!</a>
             `);
             // result info section for planets:
             $("#result-info").html(`
@@ -93,6 +102,9 @@ $(".planet").on("click", function(event) {
             `);
         }
     }
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#result-info").offset().top
+    }, 1300);
 });
 
 /* 

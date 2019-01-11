@@ -40,6 +40,9 @@ body {
 /* ==========================================================================
    Solar System
    ========================================================================== */
+#return-to-map {
+    color:maroon;
+}
 
 #solar-wrapper {
     background-image: url("./images/background3.png");
@@ -125,7 +128,7 @@ img[usemap], map area{
 }
 
 #starwars-info {
-    background: url(../star-wars-app/images/tatooinebackground.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.4)), url(../star-wars-app/images/tatooinebackground.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -163,15 +166,18 @@ img[usemap], map area{
 }
 
 
-#planet-residents, #residents-wrapper, #random-wrapper {
+#planet-residents, #residents-wrapper {
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
 }
 
-#planet-residents {
-    background-color: #333;
-}
+#random-wrapper {
+    color: #666;
+    font-size: 1.2em;
+    font-weight: bold;
+} 
+
 
 #wookiee-container {
     background-image: url(../star-wars-app/images/wookieebackground.jpg);
