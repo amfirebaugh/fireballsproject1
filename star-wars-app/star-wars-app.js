@@ -134,6 +134,7 @@ $(document).ready(function() {
                 $("#planet-population").append("...before the planet was blown up :(");
             }
 
+            response.name = response.name.toLowerCase();
             $("#planet-img").attr("src", "star-wars-app/images/" + response.name + ".png");
 
             generatePopulationGraphic(planetPopulation);
