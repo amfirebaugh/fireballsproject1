@@ -1,6 +1,6 @@
 initMars();
 
-var queryURL = "http://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+var queryURL = "https://api.nasa.gov/planetary/apod?api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
 $.ajax({
    url: queryURL,
@@ -153,7 +153,7 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
     var nasaDate = enteredDate.value;
 
     // Ajax Call
-    var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + nasaDate + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+    var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + nasaDate + "&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
     $.ajax({
         url: queryURL2,
@@ -172,7 +172,7 @@ document.querySelector('#date-form').addEventListener('submit', function(e) {
 
 // default Mars image on page load
 function initMars() {
-    var queryURL2 = "http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
+    var queryURL2 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-3-14&api_key=4PvAo6XRKPmQI7X7QAYEYvAeYYRERXf8DV4eqGiH";
 
     $.ajax({
         url: queryURL2,
