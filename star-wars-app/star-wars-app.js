@@ -112,7 +112,7 @@ $(document).ready(function() {
         var random = Math.floor(Math.random() * (61 - 1)) + 1;
 
         // var planet = $(this).attr("data-name");
-        var queryURL = "http://swapi.co/api/planets/" + random;
+        var queryURL = "https://swapi.co/api/planets/" + random;
         console.log(queryURL);
 
         // Creating an AJAX call for the planet chosen at random
